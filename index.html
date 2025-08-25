@@ -1,8 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-  Customized from: Hyperspace by HTML5 UP (CC BY 3.0)
-  html5up.net | @ajlkn
--->
 <html>
   <head>
     <title>FlowFix Labs — Automations that free your time</title>
@@ -17,6 +13,7 @@
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
     <style>
       /* Optional hero image: place ./images/hero-bg.jpg */
       #intro{
@@ -37,6 +34,10 @@
       }
       #intro.hero-bg .inner{ position: relative; z-index: 1; }
 
+      /* Center hero content + welcome logo */
+      #intro .inner { text-align: center; max-width: 960px; margin: 0 auto; }
+      .welcome-logo { width: 140px; height: auto; display: block; margin: 0 auto .75rem; filter: drop-shadow(0 4px 16px rgba(0,0,0,.35)); }
+
       /* Logo grid (Simple Icons) */
       .logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.25rem;align-items:stretch}
       @media (max-width: 980px){.logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -48,6 +49,11 @@
       .logo-tile span{margin-top:.6rem;font-size:.9rem;opacity:.9}
       .category{margin:0 0 .75rem 0;opacity:.85}
       .simple-list{list-style:disc;margin-left:1.25rem}
+
+      /* Footer logo alignment */
+      #footer .inner.footer-flex { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+      .footer-logo { height:34px; width:auto; opacity:.95; }
+      @media (max-width:680px){ #footer .inner.footer-flex { flex-direction:column; gap:.5rem; } }
     </style>
   </head>
   <body class="is-preload">
@@ -73,6 +79,8 @@
         <!-- Intro (add class 'hero-bg' to enable background image) -->
           <section id="intro" class="wrapper style1 fullscreen fade-up hero-bg">
             <div class="inner">
+              <!-- ADDED: Logo above heading -->
+              <img src="images/Logo1.png" alt="FlowFix Labs logo" class="welcome-logo" />
               <h1>FlowFix Labs</h1>
               <p>Fix the flow. Ship faster. <strong>Automate the busywork.</strong><br/>
               We design lightweight, affordable automations that connect the tools you already use — Google Workspace, Sheets, Gmail, Notion, Slack, AWS — so your team saves hours every week without hiring a dev team.</p>
@@ -124,9 +132,9 @@
               <div class="content">
                 <div class="inner">
                   <h2>Mini web tools</h2>
-                  <p>Single‑page internal tools for uploads, approvals, and quick workflows. Fast to build, easy to use.</p>
+                  <p>Single-page internal tools for uploads, approvals, and quick workflows. Fast to build, easy to use.</p>
                   <ul class="simple-list">
-                    <li>Single‑page internal apps</li>
+                    <li>Single-page internal apps</li>
                     <li>Uploads & approvals</li>
                     <li>Fast to build, easy to use</li>
                   </ul>
@@ -142,7 +150,7 @@
           <section id="two" class="wrapper style3 fade-up">
             <div class="inner">
               <h2>Example projects</h2>
-              <p>No‑nonsense, ROI‑first automations and small web tools. Start simple, scale when it pays off.</p>
+              <p>No-nonsense, ROI-first automations and small web tools. Start simple, scale when it pays off.</p>
               <div class="features">
                 <section>
                   <span class="icon solid major fa-envelope-open-text"></span>
@@ -168,44 +176,6 @@
               <ul class="actions">
                 <li><a href="elements.html" class="button">See more capabilities</a></li>
               </ul>
-            </div>
-          </section>
-
-        <!-- Ecosystem: Tech we use -->
-          <section id="ecosystem" class="wrapper style2 fade-up">
-            <div class="inner">
-              <h2>Tech we use</h2>
-              <p>We integrate with the tools you already use. Here are common platforms we build on—click any to learn more.</p>
-
-              <h3 class="category">Office & Docs</h3>
-              <div class="logo-grid">
-                <a class="logo-tile" href="https://workspace.google.com/" target="_blank" rel="noopener"><img alt="Google Workspace" src="https://cdn.simpleicons.org/google/ffffff"/><span>Google Workspace</span></a>
-                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener"><img alt="Microsoft 365" src="https://cdn.simpleicons.org/microsoft/ffffff"/><span>Microsoft 365</span></a>
-                <a class="logo-tile" href="https://www.google.com/sheets/about/" target="_blank" rel="noopener"><img alt="Google Sheets" src="https://cdn.simpleicons.org/googlesheets/ffffff"/><span>Sheets</span></a>
-                <a class="logo-tile" href="https://docs.google.com" target="_blank" rel="noopener"><img alt="Google Docs" src="https://cdn.simpleicons.org/googledocs/ffffff"/><span>Docs</span></a>
-                <a class="logo-tile" href="https://www.google.com/drive/" target="_blank" rel="noopener"><img alt="Google Drive" src="https://cdn.simpleicons.org/googledrive/ffffff"/><span>Drive</span></a>
-                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><img alt="Microsoft Excel" src="https://cdn.simpleicons.org/microsoftexcel/ffffff"/><span>Excel</span></a>
-              </div>
-
-              <h3 class="category">Communication & Workflow</h3>
-              <div class="logo-grid">
-                <a class="logo-tile" href="https://slack.com" target="_blank" rel="noopener"><img alt="Slack" src="https://cdn.simpleicons.org/slack/ffffff"/><span>Slack</span></a>
-                <a class="logo-tile" href="https://www.notion.so" target="_blank" rel="noopener"><img alt="Notion" src="https://cdn.simpleicons.org/notion/ffffff"/><span>Notion</span></a>
-                <a class="logo-tile" href="https://airtable.com" target="_blank" rel="noopener"><img alt="Airtable" src="https://cdn.simpleicons.org/airtable/ffffff"/><span>Airtable</span></a>
-                <a class="logo-tile" href="https://trello.com" target="_blank" rel="noopener"><img alt="Trello" src="https://cdn.simpleicons.org/trello/ffffff"/><span>Trello</span></a>
-                <a class="logo-tile" href="https://zapier.com" target="_blank" rel="noopener"><img alt="Zapier" src="https://cdn.simpleicons.org/zapier/ffffff"/><span>Zapier</span></a>
-                <a class="logo-tile" href="https://www.make.com" target="_blank" rel="noopener"><img alt="Make" src="https://cdn.simpleicons.org/make/ffffff"/><span>Make</span></a>
-              </div>
-
-              <h3 class="category">Cloud, Data & BI</h3>
-              <div class="logo-grid">
-                <a class="logo-tile" href="https://aws.amazon.com/" target="_blank" rel="noopener"><img alt="AWS" src="https://cdn.simpleicons.org/amazonaws/ffffff"/><span>AWS</span></a>
-                <a class="logo-tile" href="https://github.com" target="_blank" rel="noopener"><img alt="GitHub" src="https://cdn.simpleicons.org/github/ffffff"/><span>GitHub</span></a>
-                <a class="logo-tile" href="https://www.python.org" target="_blank" rel="noopener"><img alt="Python" src="https://cdn.simpleicons.org/python/ffffff"/><span>Python</span></a>
-                <a class="logo-tile" href="https://developers.google.com/apps-script" target="_blank" rel="noopener"><img alt="Google Apps Script" src="https://cdn.simpleicons.org/google/ffffff"/><span>Apps Script</span></a>
-                <a class="logo-tile" href="https://powerbi.microsoft.com" target="_blank" rel="noopener"><img alt="Power BI" src="https://cdn.simpleicons.org/powerbi/ffffff"/><span>Power BI</span></a>
-                <a class="logo-tile" href="https://www.postgresql.org/" target="_blank" rel="noopener"><img alt="PostgreSQL" src="https://cdn.simpleicons.org/postgresql/ffffff"/><span>PostgreSQL</span></a>
-              </div>
             </div>
           </section>
 
@@ -240,7 +210,7 @@
                   <ul class="contact">
                     <li>
                       <h3>Email</h3>
-                      <a href="mailto:hello@flowfixlabs.com">hello.flowfixlabs@gmail.com</a>
+                      <a href="mailto:hello@flowfixlabs.com">hello@flowfixlabs.com</a>
                     </li>
                     <li>
                       <h3>Social</h3>
@@ -259,10 +229,12 @@
 
     <!-- Footer -->
       <footer id="footer" class="wrapper style1-alt">
-        <div class="inner">
+        <div class="inner footer-flex">
           <ul class="menu">
             <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
           </ul>
+          <!-- ADDED: logo on bottom right -->
+          <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
         </div>
       </footer>
 
@@ -277,4 +249,3 @@
 
   </body>
 </html>
-

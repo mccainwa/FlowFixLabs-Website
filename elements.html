@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-  Customized from: Hyperspace by HTML5 UP (CC BY 3.0)
--->
+
 <html>
   <head>
     <title>Capabilities — FlowFix Labs</title>
@@ -22,6 +20,11 @@
       .category{margin:0 0 .75rem 0;opacity:.85}
       .muted{opacity:.8}
       .simple-list{list-style:disc;margin-left:1.25rem}
+
+      /* Footer logo alignment */
+      #footer .inner.footer-flex { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+      .footer-logo { height:34px; width:auto; opacity:.95; }
+      @media (max-width:680px){ #footer .inner.footer-flex { flex-direction:column; gap:.5rem; } }
     </style>
   </head>
   <body class="is-preload">
@@ -79,7 +82,7 @@
                     <img alt="Google Workspace" src="https://cdn.simpleicons.org/google/ffffff"/><span>Google Workspace</span>
                   </a>
                   <a class="logo-tile" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener">
-                    <img alt="Microsoft 365" src="https://cdn.simpleicons.org/microsoft/ffffff"/><span>Microsoft 365</span>
+                    <img alt="Microsoft 365" src="images/icons8-microsoft-office-2023.svg"/><span>Microsoft 365</span>
                   </a>
                   <a class="logo-tile" href="https://www.google.com/sheets/about/" target="_blank" rel="noopener">
                     <img alt="Google Sheets" src="https://cdn.simpleicons.org/googlesheets/ffffff"/><span>Sheets</span>
@@ -91,7 +94,7 @@
                     <img alt="Google Drive" src="https://cdn.simpleicons.org/googledrive/ffffff"/><span>Drive</span>
                   </a>
                   <a class="logo-tile" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener">
-                    <img alt="Microsoft Excel" src="https://cdn.simpleicons.org/microsoftexcel/ffffff"/><span>Excel</span>
+                    <img alt="Microsoft Excel" src="images/icons8-microsoft-excel.svg"/><span>Excel</span>
                   </a>
                 </div>
 
@@ -120,7 +123,7 @@
                 <h3 class="category">Cloud, Data & BI</h3>
                 <div class="logo-grid">
                   <a class="logo-tile" href="https://aws.amazon.com/" target="_blank" rel="noopener">
-                    <img alt="AWS" src="https://cdn.simpleicons.org/amazonaws/ffffff"/><span>AWS</span>
+                    <img alt="AWS" src="images/icons8-amazon-web-services.svg"/><span>AWS</span>
                   </a>
                   <a class="logo-tile" href="https://github.com" target="_blank" rel="noopener">
                     <img alt="GitHub" src="https://cdn.simpleicons.org/github/ffffff"/><span>GitHub</span>
@@ -132,7 +135,7 @@
                     <img alt="Google Apps Script" src="https://cdn.simpleicons.org/google/ffffff"/><span>Apps Script</span>
                   </a>
                   <a class="logo-tile" href="https://powerbi.microsoft.com" target="_blank" rel="noopener">
-                    <img alt="Power BI" src="https://cdn.simpleicons.org/powerbi/ffffff"/><span>Power BI</span>
+                    <img alt="Power BI" src="images/icons8-power-bi-2021.svg"/><span>Power BI</span>
                   </a>
                   <a class="logo-tile" href="https://www.postgresql.org/" target="_blank" rel="noopener">
                     <img alt="PostgreSQL" src="https://cdn.simpleicons.org/postgresql/ffffff"/><span>PostgreSQL</span>
@@ -142,7 +145,7 @@
 
               <section>
                 <h2>Languages & components</h2>
-                <p class="muted">These are the building blocks we reach for. We keep things portable and well‑documented.</p>
+                <p class="muted">These are the building blocks we reach for. We keep things portable and well-documented.</p>
                 <div class="logo-grid">
                   <div class="logo-tile"><img alt="JavaScript" src="https://cdn.simpleicons.org/javascript/ffffff"/><span>JavaScript</span></div>
                   <div class="logo-tile"><img alt="Flask" src="https://cdn.simpleicons.org/flask/ffffff"/><span>Flask</span></div>
@@ -182,10 +185,11 @@
 
     <!-- Footer -->
       <footer id="footer" class="wrapper alt">
-        <div class="inner">
+        <div class="inner footer-flex">
           <ul class="menu">
             <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
           </ul>
+          <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
         </div>
       </footer>
 

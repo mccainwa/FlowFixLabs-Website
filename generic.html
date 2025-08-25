@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-  Customized from: Hyperspace by HTML5 UP (CC BY 3.0)
--->
+
 <html>
   <head>
     <title>About — FlowFix Labs</title>
@@ -22,6 +20,11 @@
       .category{margin:0 0 .75rem 0;opacity:.85}
       .simple-list{list-style:disc;margin-left:1.25rem}
       .muted{opacity:.85}
+
+      /* Footer logo alignment */
+      #footer .inner.footer-flex { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+      .footer-logo { height:34px; width:auto; opacity:.95; }
+      @media (max-width:680px){ #footer .inner.footer-flex { flex-direction:column; gap:.5rem; } }
     </style>
   </head>
   <body class="is-preload">
@@ -56,18 +59,18 @@
                 <li><strong>Fast MVPs you can keep:</strong> days, not months; clean code, docs, and ownership stays with you.</li>
                 <li><strong>Works with your stack:</strong> Google, Microsoft 365, Slack, Notion, Airtable, Zapier/Make, AWS, and your APIs.</li>
                 <li><strong>Transparent ROI:</strong> define the time-saved goal up front; iterate only when the numbers prove it.</li>
-                <li><strong>No lock‑in:</strong> portable Python/JS, simple schedulers (cron/GitHub Actions), your data/credentials stay yours.</li>
+                <li><strong>No lock-in:</strong> portable Python/JS, simple schedulers (cron/GitHub Actions), your data/credentials stay yours.</li>
               </ul>
 
               <h2>Principles</h2>
               <ul>
                 <li>Keep it simple. Start with the tools you already have.</li>
                 <li>Automate boring tasks; keep humans on decisions.</li>
-                <li>Prefer transparent scripts over black‑box magic.</li>
+                <li>Prefer transparent scripts over black-box magic.</li>
               </ul>
 
               <h2>Approach</h2>
-              <p>Scope a smallest‑viable automation, ship a tiny v1 in days, measure time saved, and only scale the parts that move the needle.</p>
+              <p>Scope a smallest-viable automation, ship a tiny v1 in days, measure time saved, and only scale the parts that move the needle.</p>
 
               <h2>Common work services</h2>
               <p class="muted">We integrate with the platforms your team already uses. Click a logo to learn more.</p>
@@ -75,11 +78,11 @@
               <h3 class="category">Office & Docs</h3>
               <div class="logo-grid">
                 <a class="logo-tile" href="https://workspace.google.com/" target="_blank" rel="noopener"><img alt="Google Workspace" src="https://cdn.simpleicons.org/google/ffffff"/><span>Google Workspace</span></a>
-                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener"><img alt="Microsoft 365" src="https://cdn.simpleicons.org/microsoft/ffffff"/><span>Microsoft 365</span></a>
+                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener"><img alt="Microsoft 365" src="images/icons8-microsoft-office-2023.svg"/><span>Microsoft 365</span></a>
                 <a class="logo-tile" href="https://www.google.com/sheets/about/" target="_blank" rel="noopener"><img alt="Google Sheets" src="https://cdn.simpleicons.org/googlesheets/ffffff"/><span>Sheets</span></a>
                 <a class="logo-tile" href="https://docs.google.com" target="_blank" rel="noopener"><img alt="Google Docs" src="https://cdn.simpleicons.org/googledocs/ffffff"/><span>Docs</span></a>
                 <a class="logo-tile" href="https://www.google.com/drive/" target="_blank" rel="noopener"><img alt="Google Drive" src="https://cdn.simpleicons.org/googledrive/ffffff"/><span>Drive</span></a>
-                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><img alt="Microsoft Excel" src="https://cdn.simpleicons.org/microsoftexcel/ffffff"/><span>Excel</span></a>
+                <a class="logo-tile" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><img alt="Microsoft Excel" src="images/icons8-microsoft-excel.svg"/><span>Excel</span></a>
               </div>
 
               <h3 class="category">Communication & Workflow</h3>
@@ -94,11 +97,11 @@
 
               <h3 class="category">Cloud, Data & BI</h3>
               <div class="logo-grid">
-                <a class="logo-tile" href="https://aws.amazon.com/" target="_blank" rel="noopener"><img alt="AWS" src="https://cdn.simpleicons.org/amazonaws/ffffff"/><span>AWS</span></a>
+                <a class="logo-tile" href="https://aws.amazon.com/" target="_blank" rel="noopener"><img alt="AWS" src="images/icons8-amazon-web-services.svg"/><span>AWS</span></a>
                 <a class="logo-tile" href="https://github.com" target="_blank" rel="noopener"><img alt="GitHub" src="https://cdn.simpleicons.org/github/ffffff"/><span>GitHub</span></a>
                 <a class="logo-tile" href="https://www.python.org" target="_blank" rel="noopener"><img alt="Python" src="https://cdn.simpleicons.org/python/ffffff"/><span>Python</span></a>
                 <a class="logo-tile" href="https://developers.google.com/apps-script" target="_blank" rel="noopener"><img alt="Google Apps Script" src="https://cdn.simpleicons.org/google/ffffff"/><span>Apps Script</span></a>
-                <a class="logo-tile" href="https://powerbi.microsoft.com" target="_blank" rel="noopener"><img alt="Power BI" src="https://cdn.simpleicons.org/powerbi/ffffff"/><span>Power BI</span></a>
+                <a class="logo-tile" href="https://powerbi.microsoft.com" target="_blank" rel="noopener"><img alt="Power BI" src="images/icons8-power-bi-2021.svg"/><span>Power BI</span></a>
                 <a class="logo-tile" href="https://www.postgresql.org/" target="_blank" rel="noopener"><img alt="PostgreSQL" src="https://cdn.simpleicons.org/postgresql/ffffff"/><span>PostgreSQL</span></a>
               </div>
 
@@ -111,10 +114,11 @@
 
     <!-- Footer -->
       <footer id="footer" class="wrapper alt">
-        <div class="inner">
+        <div class="inner footer-flex">
           <ul class="menu">
             <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
           </ul>
+          <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
         </div>
       </footer>
 

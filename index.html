@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-
 <html>
   <head>
     <title>FlowFix Labs — Automations that free your time</title>
@@ -7,248 +6,2607 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="FlowFix Labs designs lightweight automations and mini web tools that save teams hours—Google Workspace, Python, AWS, Sheets, and more." />
     <meta property="og:title" content="FlowFix Labs — Automations that free your time" />
-    <meta property="og:description" content="Fix the flow. Ship faster. Automate the Busywork." />
+    <meta property="og:description" content="Automate. Integrate. Accelerate." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://flowfixlabs.com" />
     <link rel="canonical" href="https://flowfixlabs.com" />
     <link rel="icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
     <style>
-      /* Optional hero image: place ./images/hero-bg.jpg */
-      #intro{
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #374151;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #1e40af 50%, #2563eb 75%, #3b82f6 100%);
+        min-height: 100vh;
+        position: relative;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Header Styles */
+      .header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-icon {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border: 2px solid #2563eb;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-icon svg {
+        width: 1.75rem;
+        height: 1.75rem;
+        color: white;
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+
+      .logo-text p {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .header-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #6b7280;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #2563eb;
+        background: #f3f4f6;
+      }
+
+      .nav-link.active {
+        color: #2563eb;
+        background: #dbeafe;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 5rem 0;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-gradient-text {
+        background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: none;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 3rem;
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Cards Grid */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        max-width: 64rem;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        transition: all 0.3s ease;
+        transform: translateY(0);
         position: relative;
         overflow: hidden;
       }
-      #intro.hero-bg::before{
-        content: "";
-        position: absolute; inset: 0;
-        background: url('images/hero-bg.jpg') center/cover no-repeat;
-        opacity: .25;
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8, #2563eb);
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
-      #intro.hero-bg::after{
-        content: "";
-        position: absolute; inset: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.5));
+
+      .card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(-4px);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .ai-card::before {
+        background: linear-gradient(90deg, #f97316, #ea580c, #dc2626);
+      }
+
+      .enterprise-card::before {
+        background: linear-gradient(90deg, #2563eb, #1d4ed8, #4f46e5);
+      }
+
+      .card-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .ai-card .card-icon {
+        background: linear-gradient(135deg, #f97316, #dc2626);
+      }
+
+      .enterprise-card .card-icon {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+      }
+
+      .card-icon svg {
+        width: 2rem;
+        height: 2rem;
+        color: white;
+      }
+
+      .card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .card p {
+        color: #6b7280;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .card-features {
+        list-style: none;
+        margin-bottom: 2rem;
+        padding: 0;
+      }
+
+      .card-features li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      .card-features svg {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        color: #10b981;
+      }
+
+      .ai-card .card-features svg {
+        color: #f97316;
+      }
+
+      .enterprise-card .card-features svg {
+        color: #2563eb;
+      }
+
+      .card-button {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .ai-button {
+        background: linear-gradient(135deg, #f97316, #dc2626);
+        color: white;
+        box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3);
+      }
+
+      .ai-button:hover {
+        background: linear-gradient(135deg, #ea580c, #b91c1c);
+        box-shadow: 0 6px 12px rgba(249, 115, 22, 0.4);
+      }
+
+      .enterprise-button {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white;
+      }
+
+      .enterprise-button:hover {
+        background: linear-gradient(135deg, #1d4ed8, #4338ca);
+      }
+
+      /* Features Section */
+      .features-section {
+        padding: 4rem 0;
+        background: white;
+      }
+
+      .features-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .features-section h3 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        text-align: center;
+        color: #111827;
+        margin-bottom: 3rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-item {
+        text-align: center;
+      }
+
+      .feature-icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+      }
+
+      .feature-icon.blue {
+        background: #dbeafe;
+      }
+
+      .feature-icon.green {
+        background: #dcfce7;
+      }
+
+      .feature-icon.purple {
+        background: #f3e8ff;
+      }
+
+      .feature-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .feature-icon.blue svg {
+        color: #2563eb;
+      }
+
+      .feature-icon.green svg {
+        color: #16a34a;
+      }
+
+      .feature-icon.purple svg {
+        color: #9333ea;
+      }
+
+      .feature-item h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-item p {
+        color: #6b7280;
+      }
+
+      /* Chat Interface */
+      .chat-interface {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #f9fafb;
+        z-index: 1000;
+        flex-direction: column;
+      }
+
+      .chat-header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .chat-header-content {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #6b7280;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .back-button:hover {
+        color: #111827;
+      }
+
+      .chat-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .chat-title-icon {
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, #f97316, #dc2626);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .chat-title h1 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+        margin: 0;
+      }
+
+      .chat-container {
+        flex: 1;
+        max-width: 64rem;
+        margin: 0 auto;
+        width: 100%;
+        padding: 1.5rem;
+      }
+
+      .chat-box {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-messages {
+        flex: 1;
+        padding: 1.5rem;
+        overflow-y: auto;
+        max-height: 60vh;
+      }
+
+      .message {
+        margin-bottom: 1rem;
+        display: flex;
+      }
+
+      .message.user {
+        justify-content: flex-end;
+      }
+
+      .message.bot {
+        justify-content: flex-start;
+      }
+
+      .message-content {
+        max-width: 20rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .message.user .message-content {
+        background: #f97316;
+        color: white;
+      }
+
+      .message.bot .message-content {
+        background: #f3f4f6;
+        color: #111827;
+        border: 1px solid #e5e7eb;
+      }
+
+      .message-time {
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        display: block;
+      }
+
+      .message.user .message-time {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .message.bot .message-time {
+        color: #6b7280;
+      }
+
+      .typing-indicator {
+        display: none;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .typing-content {
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .typing-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: #6b7280;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out;
+      }
+
+      .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+      .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+      .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+      @keyframes bounce {
+        0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+        40% { transform: scale(1); opacity: 1; }
+      }
+
+      .chat-input-area {
+        padding: 1.5rem;
+        border-top: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+
+      .chat-input-container {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .chat-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .chat-input:focus {
+        border-color: #f97316;
+        box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+      }
+
+      .chat-send-button {
+        padding: 0.75rem 1.5rem;
+        background: #f97316;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .chat-send-button:hover {
+        background: #ea580c;
+      }
+
+      /* Enterprise Form */
+      .enterprise-interface {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #f9fafb;
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .enterprise-header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .enterprise-header-content {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .enterprise-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .enterprise-title-icon {
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .enterprise-container {
+        max-width: 32rem;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .enterprise-form {
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-header h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .form-header p {
+        color: #6b7280;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 6rem;
+      }
+
+      .form-info {
+        background: #dbeafe;
+        border: 1px solid #bfdbfe;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-info-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .form-info svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        color: #2563eb;
+        margin-top: 0.125rem;
+      }
+
+      .form-info-text {
+        font-size: 0.875rem;
+      }
+
+      .form-info-title {
+        color: #1e40af;
+        font-weight: 500;
+      }
+
+      .form-info-desc {
+        color: #1d4ed8;
+        margin-top: 0.25rem;
+      }
+
+      .form-submit {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .form-submit:hover {
+        background: linear-gradient(135deg, #1d4ed8, #4338ca);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h2 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .cards-grid {
+          grid-template-columns: 1fr;
+          max-width: 24rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header-tagline {
+          display: none;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 3rem 0;
+        }
+
+        .hero h2 {
+          font-size: 1.75rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .chat-messages {
+          max-height: 50vh;
+        }
+      }
+
+      /* Utility Classes */
+      .hidden {
+        display: none !important;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .gap-2 {
+        gap: 0.5rem;
+      }
+
+      .w-4 {
+        width: 1rem;
+      }
+
+      .h-4 {
+        height: 1rem;
+      }
+
+      .w-5 {
+        width: 1.25rem;
+      }
+
+      .h-5 {
+        width: 1.25rem;
+      }
+
+      /* Features Interface */
+      .features-interface {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #1e40af 50%, #2563eb 75%, #3b82f6 100%);
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .features-interface::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
         pointer-events: none;
+        z-index: -1;
       }
-      #intro.hero-bg .inner{ position: relative; z-index: 1; }
 
-      /* Left-align hero content + welcome logo */
-      #intro .inner { text-align: left; max-width: 960px; margin: 0 auto; }
-      .welcome-logo { width: 140px; height: auto; display: block; margin: 0 0 .75rem 0; filter: drop-shadow(0 4px 16px rgba(0,0,0,.35)); }
+      .features-header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
 
-      /* Logo grid (Simple Icons) */
-      .logo-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.25rem;align-items:stretch}
-      @media (max-width: 980px){.logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-      .logo-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;
-        border:1px solid rgba(255,255,255,0.12);border-radius:12px;background:rgba(255,255,255,0.04);padding:1rem;text-align:center;
-        transition:transform .15s ease, background .15s ease}
-      .logo-tile:hover{transform:translateY(-2px);background:rgba(255,255,255,0.07)}
-      .logo-tile img{height:28px;opacity:.95;display:block}
-      .logo-tile span{margin-top:.6rem;font-size:.9rem;opacity:.9}
-      .category{margin:0 0 .75rem 0;opacity:.85}
-      .simple-list{list-style:disc;margin-left:1.25rem}
+      .features-header-content {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-      /* Footer logo alignment */
-      #footer .inner.footer-flex { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-      .footer-logo { height:34px; width:auto; opacity:.95; }
-      @media (max-width:680px){ #footer .inner.footer-flex { flex-direction:column; gap:.5rem; } }
+      .features-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .features-title-icon {
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .features-container {
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .features-intro {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .features-intro h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .features-intro p {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 48rem;
+        margin: 0 auto;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Service Icons Row */
+      .services-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin: 4rem 0;
+        flex-wrap: wrap;
+      }
+
+      .service-icon {
+        width: 4rem;
+        height: 4rem;
+        background: white;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .service-icon:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-icon img {
+        width: 2.5rem;
+        height: 2.5rem;
+        object-fit: contain;
+      }
+
+      .service-icon .service-name {
+        position: absolute;
+        bottom: -2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: white;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+      }
+
+      /* Workflow Examples */
+      .workflow-examples {
+        margin: 6rem 0;
+      }
+
+      .workflow-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 3rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        max-width: 80rem;
+        margin: 0 auto;
+      }
+
+      .workflow-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .workflow-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .workflow-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .workflow-steps {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .workflow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex: 1;
+        min-width: 80px;
+      }
+
+      .workflow-step-icon {
+        width: 3rem;
+        height: 3rem;
+        background: #f3f4f6;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        border: 2px solid #e5e7eb;
+      }
+
+      .workflow-step-icon img {
+        width: 2rem;
+        height: 2rem;
+        object-fit: contain;
+      }
+
+      .workflow-step-name {
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #6b7280;
+      }
+
+      .workflow-arrow {
+        color: #2563eb;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .workflow-description {
+        color: #6b7280;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      .features-cta {
+        background: white;
+        border-radius: 1rem;
+        padding: 3rem;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        margin-top: 4rem;
+      }
+
+      .features-cta h3 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .features-cta p {
+        font-size: 1.125rem;
+        color: #6b7280;
+        margin-bottom: 2rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cta-button {
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white;
+      }
+
+      .cta-primary:hover {
+        background: linear-gradient(135deg, #1d4ed8, #4338ca);
+      }
+
+      .cta-secondary {
+        background: white;
+        color: #2563eb;
+        border: 2px solid #2563eb;
+      }
+
+      .cta-secondary:hover {
+        background: #2563eb;
+        color: white;
+      }
+
+      /* Profile Interface */
+      .profile-interface {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #1e40af 50%, #2563eb 75%, #3b82f6 100%);
+        z-index: 1000;
+        overflow-y: auto;
+      }
+
+      .profile-interface::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .profile-header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-header-content {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .profile-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .profile-title-icon {
+        width: 2rem;
+        height: 2rem;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-container {
+        max-width: 32rem;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .profile-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        padding: 3rem;
+        text-align: center;
+      }
+
+      .profile-card h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .profile-card p {
+        color: #6b7280;
+        margin-bottom: 2rem;
+        font-size: 1.125rem;
+      }
+
+      .auth-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .auth-button {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .google-auth {
+        background: white;
+        color: #374151;
+        border: 2px solid #e5e7eb;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .google-auth:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .email-auth {
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+      }
+
+      .email-auth:hover {
+        background: linear-gradient(135deg, #1d4ed8, #4338ca);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+      }
+
+      .auth-divider {
+        display: flex;
+        align-items: center;
+        margin: 1.5rem 0;
+        color: #9ca3af;
+        font-size: 0.875rem;
+      }
+
+      .auth-divider::before,
+      .auth-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e5e7eb;
+      }
+
+      .auth-divider span {
+        padding: 0 1rem;
+      }
+
+      .profile-benefits {
+        background: #f8fafc;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .profile-benefits h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .benefits-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .benefits-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      .benefits-list svg {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.75rem;
+        color: #10b981;
+      }
+
+      /* Email Signup Form */
+      .email-signup-form {
+        display: none;
+        margin-top: 2rem;
+      }
+
+      .email-signup-form.active {
+        display: block;
+      }
+
+      .signup-form-group {
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+
+      .signup-form-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 0.5rem;
+      }
+
+      .signup-form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .signup-form-input:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .signup-submit {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        color: white;
+        border: none;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .signup-submit:hover {
+        background: linear-gradient(135deg, #1d4ed8, #4338ca);
+      }
+
+      .back-to-auth {
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        font-size: 0.875rem;
+        margin-top: 1rem;
+        text-decoration: underline;
+      }
+
+      .back-to-auth:hover {
+        color: #374151;
+      }
+
+      /* User Profile Display */
+      .user-profile-display {
+        display: none;
+      }
+
+      .user-profile-display.active {
+        display: block;
+      }
+
+      .user-avatar {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #2563eb, #4f46e5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .user-info h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 0.5rem;
+      }
+
+      .user-info p {
+        color: #6b7280;
+        margin-bottom: 2rem;
+      }
+
+      .profile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .logout-button {
+        background: #ef4444;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .logout-button:hover {
+        background: #dc2626;
+      }
     </style>
   </head>
-  <body class="is-preload">
-
-    <!-- Sidebar -->
-      <section id="sidebar">
-        <div class="inner">
-          <nav>
-            <ul>
-              <li><a href="#intro">Welcome</a></li>
-              <li><a href="#one">Services</a></li>
-              <li><a href="#two">Example Projects</a></li>
-              <li><a href="#three">Contact</a></li>
-            </ul>
+  <body>
+    <!-- Main Home View -->
+    <div id="homeView">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo-section">
+            <div class="logo-icon">
+              <img src="images/Logo1.png" alt="FlowFix Labs" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+            <div class="logo-text">
+              <h1>FlowFix Labs</h1>
+              <p>Automations that free your time</p>
+            </div>
+          </div>
+          <nav class="header-nav">
+            <a href="#" onclick="showHome()" class="nav-link active" id="homeLink">Home</a>
+            <a href="#" onclick="showFeatures()" class="nav-link" id="featuresLink">Features</a>
+            <a href="#" onclick="showProfile()" class="nav-link" id="profileLink">Profile</a>
           </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h2>
+            <span class="hero-gradient-text">Automations</span> that free your time
+          </h2>
+          <p>
+            Whether you're a solo professional, small business owner, growing company, or enterprise team—we're here to help you save time and money with personalized automations. From simple recurring emails to complex integrations, we make your everyday tools work smarter, not harder.
+          </p>
+
+          <div class="cards-grid">
+            <!-- AI Assistant Card -->
+            <div class="card ai-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 8V4H8"/>
+                  <rect width="16" height="12" x="4" y="8" rx="2"/>
+                  <path d="m14 20-1.5-1.5"/>
+                  <path d="m10 20 1.5-1.5"/>
+                </svg>
+              </div>
+              <h3>Quick Start Automations</h3>
+              <p>
+                Perfect for professionals and small businesses! Get instant help with Google Sheets, Docs, Excel, Teams automations. Our AI walks you through scheduled emails, CSV reports, and sheet validation step-by-step.
+              </p>
+              <ul class="card-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Scheduled emails & alerts
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  CSV → PDF reports
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Sheet validation & QA
+                </li>
+              </ul>
+              <button class="card-button ai-button" onclick="showAIChat()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                  <path d="M5 3v4"/>
+                  <path d="M19 17v4"/>
+                  <path d="M3 5h4"/>
+                  <path d="M17 19h4"/>
+                </svg>
+                Get AI Help
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Enterprise Card -->
+            <div class="card enterprise-card">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18"/>
+                  <path d="M5 21V7l8-4v18"/>
+                  <path d="M19 21V11l-6-4"/>
+                </svg>
+              </div>
+              <h3>Custom Solutions</h3>
+              <p>
+                For growing businesses and enterprises needing complex automation. Our expert development team creates custom solutions tailored to your specific business needs and scale.
+              </p>
+              <ul class="card-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Custom integrations
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Scalable architecture
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Dedicated support
+                </li>
+              </ul>
+              <button class="card-button enterprise-button" onclick="showEnterprise()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="m22 21-3-3m0 0a5.5 5.5 0 1 1-7.78-7.78 5.5 5.5 0 0 1 7.78 7.78Z"/>
+                </svg>
+                Contact Our Team
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-    <!-- Wrapper -->
-      <div id="wrapper">
-
-        <!-- Intro (add class 'hero-bg' to enable background image) -->
-          <section id="intro" class="wrapper style1 fullscreen fade-up hero-bg">
-            <div class="inner">
-              <!-- Logo above heading, left-aligned -->
-              <img src="images/Logo1.png" alt="FlowFix Labs logo" class="welcome-logo" />
-              <h1>FlowFix Labs</h1>
-              <p>Fix the flow. Ship faster. <strong>Automate the busywork.</strong><br/>
-              We design lightweight, affordable automations that connect the tools you already use — Google Workspace, Sheets, Gmail, Notion, Slack, AWS — so your team saves hours every week without hiring a dev team.</p>
-              <ul class="actions">
-                <li><a href="#one" class="button scrolly">See services</a></li>
-                <li><a href="#three" class="button scrolly">Book a free consult</a></li>
-              </ul>
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="features-content">
+          <h3>Why Choose FlowFix Labs?</h3>
+          <div class="features-grid">
+            <div class="feature-item">
+              <div class="feature-icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12,6 12,12 16,14"/>
+                </svg>
+              </div>
+              <h4>Save Time</h4>
+              <p>Automate repetitive tasks and focus on what matters most to your business.</p>
             </div>
-          </section>
-
-        <!-- One: Services (spotlights repurposed as highlights) -->
-          <section id="one" class="wrapper style2 spotlights">
-            <section>
-              <a href="#" class="image"><img src="images/a1.png" alt="Operations automations" data-position="center center" /></a>
-              <div class="content">
-                <div class="inner">
-                  <h2>Operations automations</h2>
-                  <p>Recurring emails, alerts, and reports straight from Sheets and databases. Nightly jobs on a server so you don’t babysit tasks.</p>
-                  <ul class="simple-list">
-                    <li>Scheduled emails & alerts</li>
-                    <li>CSV → PDF reports</li>
-                    <li>Sheet validation & QA</li>
-                  </ul>
-                  <ul class="actions">
-                    <li><a href="generic.html#ops" class="button">Learn more</a></li>
-                  </ul>
-                </div>
+            <div class="feature-item">
+              <div class="feature-icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m13 2-2 2.5h3L12 7"/>
+                  <path d="M10 14L4 8l2-2m3.5 6L16 8l-2-2"/>
+                  <path d="M15 2l-2 2.5h3L14 7"/>
+                  <path d="M9 22l3-8 3 8-3-2-3 2z"/>
+                </svg>
               </div>
-            </section>
-            <section>
-              <a href="#" class="image"><img src="images/a2.png" alt="Data pipelines" data-position="top center" /></a>
-              <div class="content">
-                <div class="inner">
-                  <h2>Data pipelines</h2>
-                  <p>Pull data from APIs, clean it, and push to Sheets, BigQuery, or a dashboard. Documented and reproducible.</p>
-                  <ul class="simple-list">
-                    <li>Pull from APIs & apps</li>
-                    <li>Clean/normalize data</li>
-                    <li>Push to Sheets/BI</li>
-                  </ul>
-                  <ul class="actions">
-                    <li><a href="generic.html#pipelines" class="button">Learn more</a></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-            <section>
-              <a href="#" class="image"><img src="images/a3.png" alt="Mini web tools" data-position="25% 25%" /></a>
-              <div class="content">
-                <div class="inner">
-                  <h2>Mini web tools</h2>
-                  <p>Single-page internal tools for uploads, approvals, and quick workflows. Fast to build, easy to use.</p>
-                  <ul class="simple-list">
-                    <li>Single-page internal apps</li>
-                    <li>Uploads & approvals</li>
-                    <li>Fast to build, easy to use</li>
-                  </ul>
-                  <ul class="actions">
-                    <li><a href="generic.html#tools" class="button">Learn more</a></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </section>
-
-        <!-- Two: Example projects (features grid) -->
-          <section id="two" class="wrapper style3 fade-up">
-            <div class="inner">
-              <h2>Example projects</h2>
-              <p>No-nonsense, ROI-first automations and small web tools. Start simple, scale when it pays off.</p>
-              <div class="features">
-                <section>
-                  <span class="icon solid major fa-envelope-open-text"></span>
-                  <h3>Achievement emailer</h3>
-                  <p>Apps Script pulls the latest honors, matches parent emails, and sends templated achievements in one click.</p>
-                </section>
-                <section>
-                  <span class="icon solid major fa-chart-line"></span>
-                  <h3>Weekly KPI digest</h3>
-                  <p>Python aggregates sales across CSVs/APIs, generates a PDF, and emails stakeholders every Monday 8am.</p>
-                </section>
-                <section>
-                  <span class="icon solid major fa-sync-alt"></span>
-                  <h3>Inventory sync</h3>
-                  <p>Webhook listener normalizes vendor CSVs and updates a central Sheet used by the storefront and finance.</p>
-                </section>
-                <section>
-                  <span class="icon solid major fa-server"></span>
-                  <h3>Automated backup + audit</h3>
-                  <p>Nightly server job snapshots critical Sheets and creates an audit trail of changes.</p>
-                </section>
-              </div>
-              <ul class="actions">
-                <li><a href="elements.html" class="button">See more capabilities</a></li>
-              </ul>
+              <h4>Boost Productivity</h4>
+              <p>Streamline workflows and eliminate manual data entry across platforms.</p>
             </div>
-          </section>
-
-        <!-- Three: Contact -->
-          <section id="three" class="wrapper style1 fade-up">
-            <div class="inner">
-              <h2>Get in touch</h2>
-              <p>Tell us about your workflow and what you wish took <em>less</em> time. We’ll reply within 1 business day.</p>
-              <div class="split style1">
-                <section>
-                  <form method="post" action="mailto:hello@flowfixlabs.com" enctype="text/plain">
-                    <div class="fields">
-                      <div class="field half">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" required />
-                      </div>
-                      <div class="field half">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required />
-                      </div>
-                      <div class="field">
-                        <label for="message">What should we automate?</label>
-                        <textarea name="message" id="message" rows="5" placeholder="Describe the process and the tools you use (Sheets, Gmail, CRM, etc.)"></textarea>
-                      </div>
-                    </div>
-                    <ul class="actions">
-                      <li><button class="button submit" type="submit">Email FlowFix Labs</button></li>
-                    </ul>
-                  </form>
-                </section>
-                <section>
-                  <ul class="contact">
-                    <li>
-                      <h3>Email</h3>
-                      <a href="mailto:hello.flowfixlabs@gmail.com">hello.flowfixlabs@gmail.com</a>
-                    </li>
-                    <li>
-                      <h3>Social</h3>
-                      <ul class="icons">
-                        <li><a href="https://github.com/mccainwa" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-                        <li><a href="https://www.linkedin.com/in/waltermccainiii/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </section>
+            <div class="feature-item">
+              <div class="feature-icon purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
               </div>
+              <h4>Enterprise Ready</h4>
+              <p>Secure, scalable solutions designed for businesses of all sizes.</p>
             </div>
-          </section>
-
-      </div>
-
-    <!-- Footer -->
-      <footer id="footer" class="wrapper style1-alt">
-        <div class="inner footer-flex">
-          <ul class="menu">
-            <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
-          </ul>
-          <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
+          </div>
         </div>
-      </footer>
+      </section>
+    </div>
 
-    <!-- Scripts -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.scrollex.min.js"></script>
-      <script src="assets/js/jquery.scrolly.min.js"></script>
-      <script src="assets/js/browser.min.js"></script>
-      <script src="assets/js/breakpoints.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
+    <!-- AI Chat Interface -->
+    <div id="chatInterface" class="chat-interface">
+      <header class="chat-header">
+        <div class="chat-header-content">
+          <a href="#" class="back-button" onclick="showHome()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="m19 12-7 7-7-7"/>
+            </svg>
+            Back to Home
+          </a>
+          <div class="chat-title">
+            <div class="chat-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="M12 8V4H8"/>
+                <rect width="16" height="12" x="4" y="8" rx="2"/>
+                <path d="m14 20-1.5-1.5"/>
+                <path d="m10 20 1.5-1.5"/>
+              </svg>
+            </div>
+            <h1>AI Automation Assistant</h1>
+          </div>
+        </div>
+      </header>
 
+      <div class="chat-container">
+        <div class="chat-box">
+          <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+              <div class="message-content">
+                <p>Hi! I'm your FlowFix AI assistant. I can help you integrate and automate your everyday tools like Google Sheets, Docs, Excel, Teams, and more. What would you like to automate today?</p>
+                <span class="message-time" id="initialTime"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-content">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <div class="chat-input-container">
+              <input type="text" class="chat-input" id="chatInput" placeholder="Describe what you want to automate..." onkeydown="handleChatKeyPress(event)">
+              <button class="chat-send-button" onclick="sendChatMessage()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                  <path d="m22 2-7 20-4-9-9-4Z"/>
+                  <path d="M22 2 11 13"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enterprise Interface -->
+    <div id="enterpriseInterface" class="enterprise-interface">
+      <header class="enterprise-header">
+        <div class="enterprise-header-content">
+          <a href="#" class="back-button" onclick="showHome()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="m19 12-7 7-7-7"/>
+            </svg>
+            Back to Home
+          </a>
+          <div class="enterprise-title">
+            <div class="enterprise-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="M3 21h18"/>
+                <path d="M5 21V7l8-4v18"/>
+                <path d="M19 21V11l-6-4"/>
+              </svg>
+            </div>
+            <h1>Enterprise Solutions</h1>
+          </div>
+        </div>
+      </header>
+
+      <div class="enterprise-container">
+        <div class="enterprise-form">
+          <div class="form-header">
+            <h2>Let's Build Something Amazing Together</h2>
+            <p>Tell us about your automation needs and our expert development team will create a custom solution for your business.</p>
+          </div>
+
+          <form id="enterpriseForm" onsubmit="handleEnterpriseSubmit(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="enterpriseName">Full Name *</label>
+                <input type="text" class="form-input" id="enterpriseName" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="enterpriseEmail">Email Address *</label>
+                <input type="email" class="form-input" id="enterpriseEmail" name="email" placeholder="your@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="enterpriseCompany">Company Name *</label>
+              <input type="text" class="form-input" id="enterpriseCompany" name="company" placeholder="Your company name" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="enterpriseNeeds">Automation Needs *</label>
+              <textarea class="form-input form-textarea" id="enterpriseNeeds" name="needs" rows="6" placeholder="Describe your automation requirements, current tools, desired outcomes, and any specific challenges you're facing..." required></textarea>
+              <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.5rem;">The more details you provide, the better we can tailor our solution to your needs.</p>
+            </div>
+
+            <div class="form-info">
+              <div class="form-info-content">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                <div class="form-info-text">
+                  <p class="form-info-title">What happens next?</p>
+                  <p class="form-info-desc">Our FlowFix Labs development team will review your requirements and contact you within 24 hours to discuss your project scope, timeline, and pricing.</p>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="form-submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="m22 2-7 20-4-9-9-4Z"/>
+                <path d="M22 2 11 13"/>
+              </svg>
+              Submit Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Interface -->
+    <div id="featuresInterface" class="features-interface">
+      <header class="features-header">
+        <div class="features-header-content">
+          <a href="#" class="back-button" onclick="showHome()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="m19 12-7 7-7-7"/>
+            </svg>
+            Back to Home
+          </a>
+          <div class="features-title">
+            <div class="features-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h1>Service Integrations</h1>
+          </div>
+        </div>
+      </header>
+
+      <div class="features-container">
+        <div class="features-intro">
+          <h2>Service Integrations</h2>
+          <p>We connect the platforms your team already uses to create powerful automation workflows.</p>
+        </div>
+
+        <!-- Service Icons Row -->
+        <div class="services-row">
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/google/4285f4" alt="Google Workspace" />
+            <span class="service-name">Google Workspace</span>
+          </div>
+          <div class="service-icon">
+            <img src="images/icons8-microsoft-office-2023.svg" alt="Microsoft 365" />
+            <span class="service-name">Microsoft 365</span>
+          </div>
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/slack/4a154b" alt="Slack" />
+            <span class="service-name">Slack</span>
+          </div>
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/notion/000000" alt="Notion" />
+            <span class="service-name">Notion</span>
+          </div>
+          <div class="service-icon">
+            <img src="images/icons8-amazon-web-services.svg" alt="AWS" />
+            <span class="service-name">AWS</span>
+          </div>
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" />
+            <span class="service-name">GitHub</span>
+          </div>
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/python/3776ab" alt="Python" />
+            <span class="service-name">Python</span>
+          </div>
+          <div class="service-icon">
+            <img src="https://cdn.simpleicons.org/zapier/ff4a00" alt="Zapier" />
+            <span class="service-name">Zapier</span>
+          </div>
+        </div>
+
+        <!-- Workflow Examples -->
+        <div class="workflow-examples">
+          <h2 class="workflow-title">Example Automation Workflows</h2>
+          <div class="workflow-grid">
+            
+            <!-- Workflow 1: Email Reports -->
+            <div class="workflow-card">
+              <h3>📊 Automated Email Reports</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/googlesheets/34a853" alt="Google Sheets" />
+                  </div>
+                  <span class="workflow-step-name">Sheets Data</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/google/4285f4" alt="Apps Script" />
+                  </div>
+                  <span class="workflow-step-name">Apps Script</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/gmail/ea4335" alt="Gmail" />
+                  </div>
+                  <span class="workflow-step-name">Email Report</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Automatically generate and email weekly reports from your Google Sheets data to stakeholders.
+              </p>
+            </div>
+
+            <!-- Workflow 2: Slack Notifications -->
+            <div class="workflow-card">
+              <h3>🔔 Smart Notifications</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/airtable/18bfff" alt="Airtable" />
+                  </div>
+                  <span class="workflow-step-name">Airtable</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/zapier/ff4a00" alt="Zapier" />
+                  </div>
+                  <span class="workflow-step-name">Zapier</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/slack/4a154b" alt="Slack" />
+                  </div>
+                  <span class="workflow-step-name">Slack Alert</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Get instant Slack notifications when important records are updated in your Airtable database.
+              </p>
+            </div>
+
+            <!-- Workflow 3: Document Processing -->
+            <div class="workflow-card">
+              <h3>📄 Document Automation</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/googledocs/4285f4" alt="Google Docs" />
+                  </div>
+                  <span class="workflow-step-name">Google Docs</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/python/3776ab" alt="Python" />
+                  </div>
+                  <span class="workflow-step-name">Python Script</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/googledrive/4285f4" alt="Google Drive" />
+                  </div>
+                  <span class="workflow-step-name">Drive Storage</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Automatically process, format, and organize documents using custom Python scripts.
+              </p>
+            </div>
+
+            <!-- Workflow 4: Data Pipeline -->
+            <div class="workflow-card">
+              <h3>🔄 Data Pipeline</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="images/icons8-amazon-web-services.svg" alt="AWS" />
+                  </div>
+                  <span class="workflow-step-name">AWS Data</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/python/3776ab" alt="Python" />
+                  </div>
+                  <span class="workflow-step-name">Data Processing</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="images/icons8-power-bi-2021.svg" alt="Power BI" />
+                  </div>
+                  <span class="workflow-step-name">Power BI</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Extract data from AWS, process with Python, and create interactive dashboards in Power BI.
+              </p>
+            </div>
+
+            <!-- Workflow 5: Team Collaboration -->
+            <div class="workflow-card">
+              <h3>👥 Team Sync</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/notion/000000" alt="Notion" />
+                  </div>
+                  <span class="workflow-step-name">Notion Tasks</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub" />
+                  </div>
+                  <span class="workflow-step-name">GitHub Issues</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/slack/4a154b" alt="Slack" />
+                  </div>
+                  <span class="workflow-step-name">Team Updates</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Sync project tasks between Notion and GitHub, with automatic team updates in Slack.
+              </p>
+            </div>
+
+            <!-- Workflow 6: Customer Management -->
+            <div class="workflow-card">
+              <h3>🤝 Customer Flow</h3>
+              <div class="workflow-steps">
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="images/icons8-microsoft-excel.svg" alt="Excel" />
+                  </div>
+                  <span class="workflow-step-name">Excel CRM</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/gmail/ea4335" alt="Gmail" />
+                  </div>
+                  <span class="workflow-step-name">Email Follow-up</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="workflow-step-icon">
+                    <img src="https://cdn.simpleicons.org/trello/0079bf" alt="Trello" />
+                  </div>
+                  <span class="workflow-step-name">Task Board</span>
+                </div>
+              </div>
+              <p class="workflow-description">
+                Track customer interactions in Excel, send automated follow-ups, and manage tasks in Trello.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="features-cta">
+          <h3>Ready to automate your workflows?</h3>
+          <p>Our specialists can design custom automation solutions that connect your favorite tools and save hours of manual work.</p>
+          <div class="cta-buttons">
+            <a href="mailto:helloflowfixlabs@gmail.com" class="cta-button cta-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="m22 2-7 20-4-9-9-4Z"/>
+                <path d="M22 2 11 13"/>
+              </svg>
+              Contact Our Team
+            </a>
+            <a href="#" onclick="showAIChat()" class="cta-button cta-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="M12 8V4H8"/>
+                <rect width="16" height="12" x="4" y="8" rx="2"/>
+                <path d="m14 20-1.5-1.5"/>
+                <path d="m10 20 1.5-1.5"/>
+              </svg>
+              Try AI Assistant
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Interface -->
+    <div id="profileInterface" class="profile-interface">
+      <header class="profile-header">
+        <div class="profile-header-content">
+          <a href="#" class="back-button" onclick="showHome()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="m19 12-7 7-7-7"/>
+            </svg>
+            Back to Home
+          </a>
+          <div class="profile-title">
+            <div class="profile-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h1>User Profile</h1>
+          </div>
+        </div>
+      </header>
+
+      <div class="profile-container">
+        <div class="profile-card">
+          
+          <!-- Login/Signup View -->
+          <div id="authView">
+            <h2>Join FlowFix Labs - 100% Free</h2>
+            <p>Create your free profile to access our AI automation assistant and track your automation journey. No credit card required!</p>
+            
+            <div class="auth-options">
+              <button class="auth-button google-auth" onclick="handleGoogleAuth()">
+                <svg viewBox="0 0 24 24" style="width: 1.25rem; height: 1.25rem;">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                Continue with Google
+              </button>
+              
+              <div class="auth-divider">
+                <span>or</span>
+              </div>
+              
+              <button class="auth-button email-auth" onclick="showEmailSignup()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem;">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Sign up with Email
+              </button>
+            </div>
+
+            <div class="profile-benefits">
+              <h3>Why create a profile?</h3>
+              <ul class="benefits-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Access to personalized AI automation assistant
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Save and track your automation projects
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Priority support from FlowFix Labs specialists
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <circle cx="12" cy="12" r="9"/>
+                  </svg>
+                  Early access to new automation features
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Email Signup Form -->
+          <div id="emailSignupForm" class="email-signup-form">
+            <h2>Create Your Account</h2>
+            <p>Join FlowFix Labs and start automating your workflows today.</p>
+            
+            <form onsubmit="handleEmailSignup(event)">
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="signupName">Full Name *</label>
+                <input type="text" class="signup-form-input" id="signupName" name="name" placeholder="Your full name" required>
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="signupEmail">Email Address *</label>
+                <input type="email" class="signup-form-input" id="signupEmail" name="email" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="signupCompany">Company (Optional)</label>
+                <input type="text" class="signup-form-input" id="signupCompany" name="company" placeholder="Your company name">
+              </div>
+              
+              <button type="submit" class="signup-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Create Account
+              </button>
+            </form>
+            
+            <button class="back-to-auth" onclick="showAuthView()">← Back to login options</button>
+          </div>
+
+          <!-- User Profile Display -->
+          <div id="userProfileDisplay" class="user-profile-display">
+            <div class="user-avatar" id="userAvatar">
+              <!-- User initials will be displayed here -->
+            </div>
+            
+            <div class="user-info">
+              <h3 id="userName">Welcome!</h3>
+              <p id="userEmail">user@example.com</p>
+              <p id="userCompany" style="font-size: 0.875rem; color: #9ca3af;"></p>
+            </div>
+            
+            <div class="profile-actions">
+              <button class="card-button ai-button" onclick="showAIChat()" style="margin-bottom: 1rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="M12 8V4H8"/>
+                  <rect width="16" height="12" x="4" y="8" rx="2"/>
+                  <path d="m14 20-1.5-1.5"/>
+                  <path d="m10 20 1.5-1.5"/>
+                </svg>
+                Start AI Chat
+              </button>
+              
+              <button class="logout-button" onclick="handleLogout()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1rem; height: 1rem; margin-right: 0.5rem;">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                  <polyline points="16,17 21,12 16,7"/>
+                  <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                Sign Out
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Initialize timestamp
+      document.getElementById('initialTime').textContent = new Date().toLocaleTimeString();
+
+      // Navigation functions
+      function showHome() {
+        document.getElementById('homeView').style.display = 'block';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        
+        // Update navigation
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('featuresLink').classList.remove('active');
+      }
+
+      function showFeatures() {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'block';
+        
+        // Update navigation
+        document.getElementById('homeLink').classList.remove('active');
+        document.getElementById('featuresLink').classList.add('active');
+      }
+
+      function showAIChat() {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'flex';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('chatInput').focus();
+      }
+
+      function showEnterprise() {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'block';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('enterpriseName').focus();
+      }
+
+      // Chat functionality
+      function handleChatKeyPress(event) {
+        if (event.key === 'Enter') {
+          sendChatMessage();
+        }
+      }
+
+      function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+        
+        if (!message) return;
+
+        // Add user message
+        addChatMessage(message, 'user');
+        input.value = '';
+
+        // Show typing indicator
+        showTypingIndicator();
+
+        // Simulate AI response
+        setTimeout(() => {
+          hideTypingIndicator();
+          const response = generateAIResponse(message);
+          addChatMessage(response, 'bot');
+        }, 1500 + Math.random() * 1000);
+      }
+
+      function addChatMessage(text, sender) {
+        const messagesContainer = document.getElementById('chatMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        
+        const timestamp = new Date().toLocaleTimeString();
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${text}</p>
+            <span class="message-time">${timestamp}</span>
+          </div>
+        `;
+        
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function showTypingIndicator() {
+        document.getElementById('typingIndicator').style.display = 'flex';
+        const messagesContainer = document.getElementById('chatMessages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function hideTypingIndicator() {
+        document.getElementById('typingIndicator').style.display = 'none';
+      }
+
+      function generateAIResponse(userMessage) {
+        const message = userMessage.toLowerCase();
+        
+        // Check for complex tasks that should be referred to specialists
+        const complexKeywords = ['complex', 'enterprise', 'advanced', 'custom', 'integration', 'api', 'database', 'workflow', 'business process', 'scalable', 'multi-step'];
+        const isComplexTask = complexKeywords.some(keyword => message.includes(keyword));
+        
+        // Simple keyword-based responses with promotional messaging
+        if (message.includes('sheets') || message.includes('google sheets')) {
+          return "Absolutely! I can help you get started with Google Sheets automation:<br><br>• <strong>Auto-email reports:</strong> Set up Apps Script to email weekly summaries<br>• <strong>Data validation:</strong> Create rules to prevent errors<br>• <strong>Form responses:</strong> Auto-process form submissions<br>• <strong>Conditional formatting:</strong> Highlight important data automatically<br><br>For more advanced Sheets integrations or enterprise-level solutions, our FlowFix Labs specialists can create custom automations that save your team hours every week. Would you like me to connect you with our team for a consultation?";
+        }
+        
+        if (message.includes('email') || message.includes('gmail')) {
+          return "Perfect! Email automation is one of FlowFix Labs' core specialties. Here are some quick wins I can help you with:<br><br>• <strong>Auto-replies:</strong> Set up smart responses based on keywords<br>• <strong>Email scheduling:</strong> Send reports at specific times<br>• <strong>Template systems:</strong> Create reusable email templates<br>• <strong>Email parsing:</strong> Extract data from incoming emails<br><br>For complex email workflows involving multiple platforms or advanced business logic, our automation specialists can design custom solutions that integrate seamlessly with your existing tools. Interested in exploring enterprise-level email automation?";
+        }
+        
+        if (message.includes('excel') || message.includes('microsoft')) {
+          return "Excellent choice! I can guide you through basic Excel automation using Power Automate:<br><br>• <strong>Automated data entry:</strong> Connect forms to Excel sheets<br>• <strong>Report generation:</strong> Create scheduled Excel reports<br>• <strong>Data synchronization:</strong> Keep multiple sheets in sync<br>• <strong>Conditional alerts:</strong> Get notified when data changes<br><br>However, for sophisticated Excel integrations with databases, APIs, or complex business processes, our FlowFix Labs development team specializes in creating robust, scalable solutions. Would you like to discuss your specific Excel automation needs with our specialists?";
+        }
+        
+        if (isComplexTask || message.includes('enterprise') || message.includes('business')) {
+          return "That sounds like an exciting automation challenge! While I can help with basic setups, your requirements seem perfect for our FlowFix Labs enterprise solutions.<br><br>Our specialist team excels at:<br>• <strong>Custom integrations:</strong> Complex API connections between platforms<br>• <strong>Enterprise security:</strong> SSO, compliance, and audit trails<br>• <strong>Scalable architecture:</strong> High-volume data processing<br>• <strong>Bespoke development:</strong> Tailored automation tools<br><br>With your complex automation needs, I'd strongly recommend contacting our specialists who can design a comprehensive solution that transforms your business processes. They've helped companies save thousands of hours annually. Ready to explore what's possible?";
+        }
+        
+        // Default responses with promotional messaging
+        const promotionalResponses = [
+          "I can definitely help you get started with that automation! For basic setups, I'll walk you through the process step-by-step. However, if you're looking for a more robust, enterprise-grade solution, our FlowFix Labs specialists can create custom automations that integrate seamlessly with your business processes. What specific tools are you looking to connect?",
+          "That's a great automation opportunity! I can guide you through the initial setup, but for advanced integrations and scalable solutions, our FlowFix Labs development team specializes in creating comprehensive automation systems that save businesses significant time and resources. Would you like to start with a basic setup or explore our enterprise solutions?",
+          "Perfect! I can help you with the fundamentals of that automation. For more sophisticated workflows involving multiple platforms or complex business logic, our FlowFix Labs specialists have extensive experience building custom solutions that transform how teams work. What's your current workflow looking like?",
+          "Absolutely! I can get you started with a basic version of that automation. However, if you're dealing with high-volume data, complex integrations, or enterprise-level requirements, our FlowFix Labs team creates tailored solutions that scale with your business needs. Let me know more about your specific requirements!"
+        ];
+        
+        return promotionalResponses[Math.floor(Math.random() * promotionalResponses.length)];
+      }
+
+      // Enterprise form handling
+      function handleEnterpriseSubmit(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          company: formData.get('company'),
+          needs: formData.get('needs')
+        };
+        
+        // Create email body
+        const emailBody = `Enterprise Automation Request
+
+Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company}
+
+Automation Needs:
+${data.needs}
+
+---
+Sent from FlowFix Labs website contact form`;
+        
+        // Create mailto link
+        const mailtoLink = `mailto:hello.flowfixlabs@gmail.com?subject=Enterprise Automation Request - ${data.company}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show confirmation
+        alert('Thank you for your submission! Our FlowFix Labs development team will contact you within 24 hours to discuss your automation needs.');
+        
+        // Reset form
+        event.target.reset();
+      }
+
+      // User Session Management
+      let currentUser = null;
+
+      // Check if user is logged in on page load
+      function checkUserSession() {
+        const userData = localStorage.getItem('flowfixUser');
+        if (userData) {
+          currentUser = JSON.parse(userData);
+          updateProfileDisplay();
+        }
+      }
+
+      // Profile Navigation and Authentication
+      function showProfile() {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('profileInterface').style.display = 'block';
+        
+        // Update navigation
+        document.getElementById('homeLink').classList.remove('active');
+        document.getElementById('featuresLink').classList.remove('active');
+        document.getElementById('profileLink').classList.add('active');
+        
+        // Show appropriate view based on login status
+        if (currentUser) {
+          showUserProfile();
+        } else {
+          showAuthView();
+        }
+      }
+
+      function showAuthView() {
+        document.getElementById('authView').style.display = 'block';
+        document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('userProfileDisplay').classList.remove('active');
+      }
+
+      function showEmailSignup() {
+        document.getElementById('authView').style.display = 'none';
+        document.getElementById('emailSignupForm').classList.add('active');
+        document.getElementById('userProfileDisplay').classList.remove('active');
+        document.getElementById('signupName').focus();
+      }
+
+      function showUserProfile() {
+        document.getElementById('authView').style.display = 'none';
+        document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('userProfileDisplay').classList.add('active');
+      }
+
+      // Google Authentication (Simulated)
+      function handleGoogleAuth() {
+        // In a real implementation, this would integrate with Google OAuth
+        // For demo purposes, we'll simulate a successful Google login
+        const mockGoogleUser = {
+          name: 'Demo User',
+          email: 'demo@gmail.com',
+          company: '',
+          authMethod: 'google',
+          loginTime: new Date().toISOString()
+        };
+        
+        // Save user data
+        currentUser = mockGoogleUser;
+        localStorage.setItem('flowfixUser', JSON.stringify(currentUser));
+        
+        // Update UI
+        updateProfileDisplay();
+        showUserProfile();
+        
+        // Show success message
+        alert('Successfully signed in with Google! You can now access the AI automation assistant.');
+        
+        // Send user data to company (simulated)
+        sendUserDataToCompany(currentUser);
+      }
+
+      // Email Signup
+      function handleEmailSignup(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const userData = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          company: formData.get('company') || '',
+          authMethod: 'email',
+          loginTime: new Date().toISOString()
+        };
+        
+        // Save user data
+        currentUser = userData;
+        localStorage.setItem('flowfixUser', JSON.stringify(currentUser));
+        
+        // Update UI
+        updateProfileDisplay();
+        showUserProfile();
+        
+        // Show success message
+        alert('Account created successfully! You can now access the AI automation assistant.');
+        
+        // Reset form
+        event.target.reset();
+        
+        // Send user data to company (simulated)
+        sendUserDataToCompany(currentUser);
+      }
+
+      // Update Profile Display
+      function updateProfileDisplay() {
+        if (!currentUser) return;
+        
+        // Update user avatar with initials
+        const initials = currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase();
+        document.getElementById('userAvatar').textContent = initials;
+        
+        // Update user info
+        document.getElementById('userName').textContent = currentUser.name;
+        document.getElementById('userEmail').textContent = currentUser.email;
+        
+        const companyElement = document.getElementById('userCompany');
+        if (currentUser.company) {
+          companyElement.textContent = currentUser.company;
+          companyElement.style.display = 'block';
+        } else {
+          companyElement.style.display = 'none';
+        }
+      }
+
+      // Logout
+      function handleLogout() {
+        if (confirm('Are you sure you want to sign out?')) {
+          currentUser = null;
+          localStorage.removeItem('flowfixUser');
+          showAuthView();
+          alert('You have been signed out successfully.');
+        }
+      }
+
+      // Send user data to company (simulated email)
+      function sendUserDataToCompany(userData) {
+        const emailBody = `New FlowFix Labs User Registration
+
+Name: ${userData.name}
+Email: ${userData.email}
+Company: ${userData.company || 'Not provided'}
+Authentication Method: ${userData.authMethod}
+Registration Time: ${new Date(userData.loginTime).toLocaleString()}
+
+---
+This user has created a profile and can now access the AI automation assistant.
+Sent from FlowFix Labs website user registration system.`;
+        
+        // Create mailto link (this would be replaced with actual backend integration)
+        const mailtoLink = `mailto:helloflowfixlabs@gmail.com?subject=New User Registration - ${userData.name}&body=${encodeURIComponent(emailBody)}`;
+        
+        // In a real implementation, this would be sent via backend API
+        // For demo purposes, we'll just log it
+        console.log('User registration data sent to company:', userData);
+      }
+
+      // Modified showAIChat to require login
+      function showAIChat() {
+        // Check if user is logged in
+        if (!currentUser) {
+          alert('Please create a profile first to access the AI automation assistant.');
+          showProfile();
+          return;
+        }
+        
+        // User is logged in, proceed to chat
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'flex';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('profileInterface').style.display = 'none';
+        document.getElementById('chatInput').focus();
+        
+        // Update chat welcome message with user's name
+        updateChatWelcomeMessage();
+      }
+
+      // Update chat welcome message with user's name
+      function updateChatWelcomeMessage() {
+        if (currentUser) {
+          const welcomeMessage = document.querySelector('#chatMessages .message.bot .message-content p');
+          if (welcomeMessage) {
+            welcomeMessage.innerHTML = `Hi ${currentUser.name.split(' ')[0]}! I'm your FlowFix AI assistant. I can help you integrate and automate your everyday tools like Google Sheets, Docs, Excel, Teams, and more. What would you like to automate today?`;
+          }
+        }
+      }
+
+      // Update navigation functions to handle profile link
+      function showHome() {
+        document.getElementById('homeView').style.display = 'block';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('profileInterface').style.display = 'none';
+        
+        // Update navigation
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('featuresLink').classList.remove('active');
+        document.getElementById('profileLink').classList.remove('active');
+      }
+
+      function showFeatures() {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'block';
+        document.getElementById('profileInterface').style.display = 'none';
+        
+        // Update navigation
+        document.getElementById('homeLink').classList.remove('active');
+        document.getElementById('featuresLink').classList.add('active');
+        document.getElementById('profileLink').classList.remove('active');
+      }
+
+      // Initialize user session on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        checkUserSession();
+      });
+    </script>
   </body>
 </html>
-
-
-
-

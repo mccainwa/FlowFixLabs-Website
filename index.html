@@ -1456,6 +1456,232 @@
       .logout-button:hover {
         background: #dc2626;
       }
+
+      /* Footer Styles */
+      .footer {
+        background: #1f2937;
+        color: white;
+        margin-top: auto;
+      }
+
+      .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo-icon {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer-logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .footer-logo-text h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .footer-logo-text p {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        margin: 0;
+      }
+
+      .footer-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-section a {
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #374151;
+        background: #111827;
+      }
+
+      .footer-bottom-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin: 0.25rem 0;
+      }
+
+      .footer-bottom p:first-child {
+        font-weight: 500;
+        color: #d1d5db;
+      }
+    </style>
+      .logout-button:hover {
+        background: #dc2626;
+      }
+
+      /* Footer Styles */
+      .footer {
+        background: #1f2937;
+        color: white;
+        margin-top: auto;
+      }
+
+      .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo-icon {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .footer-logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .footer-logo-text h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        margin: 0 0 0.25rem 0;
+      }
+
+      .footer-logo-text p {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        margin: 0;
+      }
+
+      .footer-links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-section h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-section a {
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #374151;
+        background: #111827;
+      }
+
+      .footer-bottom-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin: 0.25rem 0;
+      }
+
+      .footer-bottom p:first-child {
+        font-weight: 500;
+        color: #d1d5db;
+      }
     </style>
   </head>
   <body>
@@ -1627,7 +1853,7 @@
               <div class="feature-icon purple">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
-                  <path d="m9 12 2 2 4-4"/>
+                  <path d="m9 12l2 2 4-4"/>
                 </svg>
               </div>
               <h4>Enterprise Ready</h4>
@@ -1636,6 +1862,51 @@
           </div>
         </div>
       </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="images/Logo1.png" alt="FlowFix Labs" />
+            </div>
+            <div class="footer-logo-text">
+              <h3>FlowFix Labs</h3>
+              <p>Automations that free your time</p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#" onclick="showAIChat()">AI Assistant</a></li>
+                <li><a href="#" onclick="showEnterprise()">Enterprise Solutions</a></li>
+                <li><a href="#" onclick="showFeatures()">Integrations</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Contact</a></li>
+                <li><a href="#" onclick="showProfile()">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Email</a></li>
+                <li><a href="https://flowfixlabs.com">Website</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2024 FlowFix Labs. All rights reserved.</p>
+            <p>Designed to automate your workflow and free your time.</p>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- AI Chat Interface -->
@@ -2163,8 +2434,32 @@
               </div>
               
               <div class="signup-form-group">
+                <label class="signup-form-label" for="signupPassword">Password *</label>
+                <input type="password" class="signup-form-input" id="signupPassword" name="password" placeholder="Create a secure password" required minlength="8">
+                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Minimum 8 characters</p>
+              </div>
+              
+              <div class="signup-form-group">
                 <label class="signup-form-label" for="signupCompany">Company (Optional)</label>
                 <input type="text" class="signup-form-input" id="signupCompany" name="company" placeholder="Your company name">
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="signupPhone">Phone Number (Optional)</label>
+                <input type="tel" class="signup-form-input" id="signupPhone" name="phone" placeholder="Your phone number">
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="signupInterests">Marketing Interests (Optional)</label>
+                <select class="signup-form-input" id="signupInterests" name="interests">
+                  <option value="">Select your primary interest</option>
+                  <option value="automation">Automation Solutions</option>
+                  <option value="ai-tools">AI Tools & Integration</option>
+                  <option value="data-analytics">Data Analytics</option>
+                  <option value="workflow-optimization">Workflow Optimization</option>
+                  <option value="enterprise-solutions">Enterprise Solutions</option>
+                  <option value="small-business">Small Business Tools</option>
+                </select>
               </div>
               
               <button type="submit" class="signup-submit">
@@ -2560,9 +2855,13 @@ Sent from FlowFix Labs website contact form`;
         const userData = {
           name: formData.get('name'),
           email: formData.get('email'),
+          password: formData.get('password'), // Store password (in real app, this would be hashed)
           company: formData.get('company') || '',
+          phone: formData.get('phone') || '',
+          interests: formData.get('interests') || '',
           authMethod: 'email',
-          loginTime: new Date().toISOString()
+          loginTime: new Date().toISOString(),
+          userId: 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
         };
         
         // Save user data
@@ -2579,7 +2878,7 @@ Sent from FlowFix Labs website contact form`;
         // Reset form
         event.target.reset();
         
-        // Send user data to company (simulated)
+        // Send user data to company for marketing purposes
         sendUserDataToCompany(currentUser);
       }
 
@@ -2614,26 +2913,61 @@ Sent from FlowFix Labs website contact form`;
         }
       }
 
-      // Send user data to company (simulated email)
+      // Send user data to company for marketing purposes
       function sendUserDataToCompany(userData) {
-        const emailBody = `New FlowFix Labs User Registration
+        const emailBody = `New FlowFix Labs User Registration - Marketing Data
 
+=== USER PROFILE INFORMATION ===
 Name: ${userData.name}
 Email: ${userData.email}
+User ID: ${userData.userId || 'N/A'}
 Company: ${userData.company || 'Not provided'}
+Phone: ${userData.phone || 'Not provided'}
+Marketing Interests: ${userData.interests || 'Not specified'}
 Authentication Method: ${userData.authMethod}
 Registration Time: ${new Date(userData.loginTime).toLocaleString()}
 
+=== MARKETING SEGMENTATION ===
+Business Type: ${userData.company ? 'Business User' : 'Individual User'}
+Contact Preference: ${userData.phone ? 'Phone & Email' : 'Email Only'}
+Interest Category: ${userData.interests || 'General Automation'}
+
+=== ADDITIONAL DATA ===
+Google ID: ${userData.googleId || 'N/A'}
+Profile Picture: ${userData.picture || 'N/A'}
+
 ---
-This user has created a profile and can now access the AI automation assistant.
+This user data is collected for marketing purposes and can be used for:
+- Targeted email campaigns
+- Product recommendations
+- Customer segmentation
+- Follow-up communications
+- Market research and analytics
+
 Sent from FlowFix Labs website user registration system.`;
         
         // Create mailto link (this would be replaced with actual backend integration)
-        const mailtoLink = `mailto:helloflowfixlabs@gmail.com?subject=New User Registration - ${userData.name}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:helloflowfixlabs@gmail.com?subject=New User Registration - ${userData.name} - Marketing Data&body=${encodeURIComponent(emailBody)}`;
         
         // In a real implementation, this would be sent via backend API
-        // For demo purposes, we'll just log it
-        console.log('User registration data sent to company:', userData);
+        // For demo purposes, we'll log it and simulate sending
+        console.log('User registration data sent to company for marketing:', userData);
+        
+        // Simulate API call to store user data (in real app, this would be a backend endpoint)
+        try {
+          // This would normally be a POST request to your backend
+          localStorage.setItem('userRegistrations', JSON.stringify([
+            ...(JSON.parse(localStorage.getItem('userRegistrations') || '[]')),
+            {
+              ...userData,
+              registrationId: 'reg_' + Date.now(),
+              marketingConsent: true,
+              source: 'website_signup'
+            }
+          ]));
+        } catch (error) {
+          console.error('Error storing user registration data:', error);
+        }
       }
 
       // Modified showAIChat to require login

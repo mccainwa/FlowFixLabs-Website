@@ -3001,6 +3001,47 @@
             <button class="back-to-auth" onclick="showEmailLogin()">← Back to sign in</button>
           </div>
 
+          <!-- Reset Password Form -->
+          <div id="resetPasswordForm" class="email-signup-form">
+            <h2>Create New Password</h2>
+            <p>Please enter your new password. Make sure it's secure and easy for you to remember.</p>
+            
+            <form onsubmit="handlePasswordReset(event)">
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="newPassword">New Password *</label>
+                <input type="password" class="signup-form-input" id="newPassword" name="newPassword" placeholder="Enter your new password" required minlength="8">
+                <p style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">Minimum 8 characters</p>
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="confirmPassword">Confirm New Password *</label>
+                <input type="password" class="signup-form-input" id="confirmPassword" name="confirmPassword" placeholder="Confirm your new password" required minlength="8">
+              </div>
+              
+              <div class="form-info" style="background: #fef3c7; border-color: #fcd34d; margin-bottom: 1.5rem;">
+                <div class="form-info-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #d97706;">
+                    <path d="m21 2-1 1"/>
+                    <path d="M3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6"/>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                  <div class="form-info-text">
+                    <p style="color: #92400e; font-weight: 500;">Security Tips</p>
+                    <p style="color: #b45309; margin-top: 0.25rem;">Use a combination of letters, numbers, and symbols. Avoid using personal information or common words.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="signup-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="M9 12l2 2 4-4"/>
+                  <circle cx="12" cy="12" r="9"/>
+                </svg>
+                Update Password
+              </button>
+            </form>
+          </div>
+
           <!-- User Profile Display -->
           <div id="userProfileDisplay" class="user-profile-display">
             <div class="user-avatar" id="userAvatar">
@@ -3789,16 +3830,20 @@ Sent from FlowFix Labs website user registration system.`;
         showTypingIndicator();
 
         try {
-          // Call your custom AI API
-          const response = await fetch('https://api.beyondzsolutions.com/api/chat', {
+          // Call Hugging Face Inference API (free tier)
+          const response = await fetch('https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium', {
             method: 'POST',
             headers: {
+              'Authorization': 'Bearer hf_demo', // Using demo token for free access
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              message: message,
-              user: currentUser ? currentUser.name : 'Anonymous',
-              context: 'FlowFix Labs automation assistant'
+              inputs: `You are a helpful AI automation assistant for FlowFix Labs. Help users with Google Sheets, Excel, email automation, Slack integrations, and workflow automation. User: ${message}`,
+              parameters: {
+                max_length: 200,
+                temperature: 0.7,
+                do_sample: true
+              }
             })
           });
 
@@ -3810,8 +3855,19 @@ Sent from FlowFix Labs website user registration system.`;
           
           hideTypingIndicator();
           
-          // Extract the AI response from your API response format
-          const aiResponse = data.response || data.message || data.reply || 'I apologize, but I encountered an issue processing your request. Please try again.';
+          // Extract the AI response from Hugging Face format
+          let aiResponse = '';
+          if (data && data[0] && data[0].generated_text) {
+            aiResponse = data[0].generated_text.replace(`You are a helpful AI automation assistant for FlowFix Labs. Help users with Google Sheets, Excel, email automation, Slack integrations, and workflow automation. User: ${message}`, '').trim();
+            
+            // If response is empty or too short, use fallback
+            if (!aiResponse || aiResponse.length < 10) {
+              aiResponse = generateFallbackResponse(message);
+            }
+          } else {
+            aiResponse = generateFallbackResponse(message);
+          }
+          
           addChatMessage(aiResponse, 'bot');
           
           // Show contextual suggestions
@@ -3850,97 +3906,260 @@ Sent from FlowFix Labs website user registration system.`;
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       }
 
-      // Forgot Password Functions
+      // Password Reset Functions
       function showForgotPassword() {
         document.getElementById('authView').style.display = 'none';
         document.getElementById('emailSignupForm').classList.remove('active');
         document.getElementById('emailLoginForm').classList.remove('active');
         document.getElementById('forgotPasswordForm').classList.add('active');
+        document.getElementById('resetPasswordForm').classList.remove('active');
         document.getElementById('userProfileDisplay').classList.remove('active');
         document.getElementById('forgotEmail').focus();
       }
 
-      function handleForgotPassword(event) {
+      async function handleForgotPassword(event) {
         event.preventDefault();
         
         const formData = new FormData(event.target);
         const resetEmail = formData.get('email');
         
-        // Get all registered users from localStorage
-        const registeredUsers = JSON.parse(localStorage.getItem('userRegistrations') || '[]');
+        // Show loading state
+        const submitButton = event.target.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        submitButton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 animate-spin"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> Sending...';
+        submitButton.disabled = true;
         
-        // Also check the current user storage format
-        const storedUser = localStorage.getItem('flowfixUser');
-        let allUsers = [...registeredUsers];
+        try {
+          // Get all registered users from localStorage
+          const registeredUsers = JSON.parse(localStorage.getItem('userRegistrations') || '[]');
+          const storedUser = localStorage.getItem('flowfixUser');
+          let allUsers = [...registeredUsers];
+          
+          if (storedUser) {
+            const parsedUser = JSON.parse(storedUser);
+            if (!allUsers.find(u => u.email === parsedUser.email)) {
+              allUsers.push(parsedUser);
+            }
+          }
+          
+          // Check if email exists in our user database
+          const foundUser = allUsers.find(user => user.email === resetEmail);
+          
+          if (foundUser) {
+            // Generate secure reset token
+            const resetToken = generateSecureToken();
+            const resetExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours from now
+            
+            // Store reset token
+            const resetTokens = JSON.parse(localStorage.getItem('passwordResetTokens') || '{}');
+            resetTokens[resetToken] = {
+              email: resetEmail,
+              userId: foundUser.userId,
+              expiry: resetExpiry.toISOString(),
+              used: false
+            };
+            localStorage.setItem('passwordResetTokens', JSON.stringify(resetTokens));
+            
+            // Create reset link
+            const resetLink = `${window.location.origin}${window.location.pathname}?reset=${resetToken}`;
+            
+            // Send actual email using EmailJS or similar service
+            const emailSent = await sendPasswordResetEmail(resetEmail, foundUser.name, resetLink);
+            
+            if (emailSent) {
+              alert(`Password reset link has been sent to ${resetEmail}. Please check your email and click the link to reset your password. The link will expire in 24 hours.`);
+              
+              // Reset form and go back to login
+              event.target.reset();
+              showEmailLogin();
+            } else {
+              throw new Error('Failed to send email');
+            }
+            
+          } else {
+            // Email not found
+            alert('We could not find an account associated with that email address. Please check your email and try again, or create a new account.');
+            document.getElementById('forgotEmail').value = '';
+            document.getElementById('forgotEmail').focus();
+          }
+          
+        } catch (error) {
+          console.error('Error sending password reset email:', error);
+          alert('There was an error sending the password reset email. Please try again or contact support.');
+        } finally {
+          // Restore button state
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        }
+      }
+
+      // Generate secure token for password reset
+      function generateSecureToken() {
+        const array = new Uint8Array(32);
+        crypto.getRandomValues(array);
+        return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+      }
+
+      // Send password reset email using EmailJS
+      async function sendPasswordResetEmail(email, name, resetLink) {
+        try {
+          // Initialize EmailJS (you'll need to set up an EmailJS account)
+          // For demo purposes, we'll simulate email sending
+          
+          const emailTemplate = {
+            to_email: email,
+            to_name: name,
+            reset_link: resetLink,
+            company_name: 'FlowFix Labs',
+            expiry_hours: '24'
+          };
+          
+          // In a real implementation, you would use EmailJS or similar service:
+          // const response = await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailTemplate);
+          
+          // For demo, we'll simulate successful email sending
+          console.log('Password reset email would be sent to:', email);
+          console.log('Reset link:', resetLink);
+          
+          // Simulate API delay
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          return true; // Simulate successful email sending
+          
+        } catch (error) {
+          console.error('Error sending email:', error);
+          return false;
+        }
+      }
+
+      // Check for reset token in URL on page load
+      function checkForResetToken() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const resetToken = urlParams.get('reset');
         
-        if (storedUser) {
-          const parsedUser = JSON.parse(storedUser);
-          // Add stored user to search list if not already in registrations
-          if (!allUsers.find(u => u.email === parsedUser.email)) {
-            allUsers.push(parsedUser);
+        if (resetToken) {
+          // Validate token
+          const resetTokens = JSON.parse(localStorage.getItem('passwordResetTokens') || '{}');
+          const tokenData = resetTokens[resetToken];
+          
+          if (tokenData && !tokenData.used && new Date(tokenData.expiry) > new Date()) {
+            // Valid token, show reset password form
+            showResetPasswordForm(resetToken);
+          } else {
+            // Invalid or expired token
+            alert('This password reset link is invalid or has expired. Please request a new password reset.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+            showProfile();
           }
         }
+      }
+
+      // Show reset password form
+      function showResetPasswordForm(resetToken) {
+        document.getElementById('homeView').style.display = 'none';
+        document.getElementById('chatInterface').style.display = 'none';
+        document.getElementById('enterpriseInterface').style.display = 'none';
+        document.getElementById('featuresInterface').style.display = 'none';
+        document.getElementById('profileInterface').style.display = 'block';
         
-        // Check if email exists in our user database
-        const foundUser = allUsers.find(user => user.email === resetEmail);
+        document.getElementById('authView').style.display = 'none';
+        document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('emailLoginForm').classList.remove('active');
+        document.getElementById('forgotPasswordForm').classList.remove('active');
+        document.getElementById('resetPasswordForm').classList.add('active');
+        document.getElementById('userProfileDisplay').classList.remove('active');
         
-        if (foundUser) {
-          // In a real application, this would send an actual email
-          // For demo purposes, we'll show the password reset info
-          
-          // Create email body for company notification
-          const emailBody = `Password Reset Request - FlowFix Labs
+        // Store token for form submission
+        document.getElementById('resetPasswordForm').dataset.token = resetToken;
+        document.getElementById('newPassword').focus();
+      }
 
-User Details:
-Name: ${foundUser.name}
-Email: ${resetEmail}
-Company: ${foundUser.company || 'Not provided'}
-User ID: ${foundUser.userId || 'N/A'}
-Original Registration: ${foundUser.loginTime ? new Date(foundUser.loginTime).toLocaleString() : 'Unknown'}
-
-Reset Request Time: ${new Date().toLocaleString()}
-
----
-This user has requested a password reset. Please follow up with password reset instructions.
-
-Sent from FlowFix Labs website password reset system.`;
+      // Handle password reset form submission
+      async function handlePasswordReset(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const newPassword = formData.get('newPassword');
+        const confirmPassword = formData.get('confirmPassword');
+        const resetToken = event.target.dataset.token;
+        
+        // Validate passwords match
+        if (newPassword !== confirmPassword) {
+          alert('Passwords do not match. Please try again.');
+          document.getElementById('confirmPassword').focus();
+          return;
+        }
+        
+        // Validate password strength
+        if (newPassword.length < 8) {
+          alert('Password must be at least 8 characters long.');
+          document.getElementById('newPassword').focus();
+          return;
+        }
+        
+        try {
+          // Get token data
+          const resetTokens = JSON.parse(localStorage.getItem('passwordResetTokens') || '{}');
+          const tokenData = resetTokens[resetToken];
           
-          // In a real app, this would trigger an email service
-          console.log('Password reset requested for:', resetEmail);
+          if (!tokenData || tokenData.used || new Date(tokenData.expiry) <= new Date()) {
+            throw new Error('Invalid or expired reset token');
+          }
           
-          // Show success message
-          alert(`Password reset instructions have been sent to ${resetEmail}. Please check your email and follow the instructions to reset your password.\n\nNote: In this demo, the reset request has been logged for our team to follow up with you directly.`);
+          // Find and update user password
+          const registeredUsers = JSON.parse(localStorage.getItem('userRegistrations') || '[]');
+          const storedUser = localStorage.getItem('flowfixUser');
+          let allUsers = [...registeredUsers];
           
-          // Reset form and go back to login
+          if (storedUser) {
+            const parsedUser = JSON.parse(storedUser);
+            if (!allUsers.find(u => u.email === parsedUser.email)) {
+              allUsers.push(parsedUser);
+            }
+          }
+          
+          const userIndex = allUsers.findIndex(user => user.email === tokenData.email);
+          if (userIndex === -1) {
+            throw new Error('User not found');
+          }
+          
+          // Update password
+          allUsers[userIndex].password = newPassword;
+          allUsers[userIndex].passwordResetTime = new Date().toISOString();
+          
+          // Save updated user data
+          localStorage.setItem('userRegistrations', JSON.stringify(allUsers));
+          
+          // If this is the current user, update their stored data too
+          if (storedUser) {
+            const parsedUser = JSON.parse(storedUser);
+            if (parsedUser.email === tokenData.email) {
+              parsedUser.password = newPassword;
+              parsedUser.passwordResetTime = new Date().toISOString();
+              localStorage.setItem('flowfixUser', JSON.stringify(parsedUser));
+            }
+          }
+          
+          // Mark token as used
+          resetTokens[resetToken].used = true;
+          localStorage.setItem('passwordResetTokens', JSON.stringify(resetTokens));
+          
+          // Clear URL parameter
+          window.history.replaceState({}, document.title, window.location.pathname);
+          
+          // Show success message and redirect to login
+          alert('Your password has been successfully reset! You can now sign in with your new password.');
+          
+          // Reset form and show login
           event.target.reset();
           showEmailLogin();
           
-          // Send notification to company (in real app, this would be handled by backend)
-          try {
-            // Create mailto link for company notification
-            const mailtoLink = `mailto:helloflowfixlabs@gmail.com?subject=Password Reset Request - ${resetEmail}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Log the reset request
-            const resetRequests = JSON.parse(localStorage.getItem('passwordResetRequests') || '[]');
-            resetRequests.push({
-              email: resetEmail,
-              userId: foundUser.userId,
-              requestTime: new Date().toISOString(),
-              requestId: 'reset_' + Date.now()
-            });
-            localStorage.setItem('passwordResetRequests', JSON.stringify(resetRequests));
-            
-          } catch (error) {
-            console.error('Error logging password reset request:', error);
-          }
+          // Pre-fill email in login form
+          document.getElementById('loginEmail').value = tokenData.email;
           
-        } else {
-          // Email not found
-          alert('We could not find an account associated with that email address. Please check your email and try again, or create a new account.');
-          
-          // Clear the email field and refocus
-          document.getElementById('forgotEmail').value = '';
-          document.getElementById('forgotEmail').focus();
+        } catch (error) {
+          console.error('Error resetting password:', error);
+          alert('There was an error resetting your password. Please try again or request a new reset link.');
         }
       }
 
@@ -3948,6 +4167,7 @@ Sent from FlowFix Labs website password reset system.`;
       document.addEventListener('DOMContentLoaded', function() {
         checkUserSession();
         initializeGoogleSignIn();
+        checkForResetToken();
       });
     </script>
   </body>

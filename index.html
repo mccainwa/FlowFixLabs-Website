@@ -2207,6 +2207,51 @@
           </div>
         </div>
       </div>
+
+      <!-- Features Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="images/Logo1.png" alt="FlowFix Labs" />
+            </div>
+            <div class="footer-logo-text">
+              <h3>FlowFix Labs</h3>
+              <p>Automations that free your time</p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#" onclick="showAIChat()">AI Assistant</a></li>
+                <li><a href="#" onclick="showEnterprise()">Enterprise Solutions</a></li>
+                <li><a href="#" onclick="showFeatures()">Integrations</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Contact</a></li>
+                <li><a href="#" onclick="showProfile()">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Email</a></li>
+                <li><a href="https://flowfixlabs.com">Website</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 FlowFix Labs. All rights reserved.</p>
+            <p>Designed to automate your workflow and free your time.</p>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- Profile Interface -->
@@ -2266,6 +2311,19 @@
                 Sign up with Email
               </button>
             </div>
+
+            <div class="auth-divider">
+              <span>Already have an account?</span>
+            </div>
+
+            <button class="auth-button" onclick="showEmailLogin()" style="background: #f3f4f6; color: #374151; border: 2px solid #d1d5db;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem;">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10,17 15,12 10,7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              Sign in to Existing Account
+            </button>
 
             <div class="profile-benefits">
               <h3>Why create a profile?</h3>
@@ -2359,6 +2417,35 @@
             <button class="back-to-auth" onclick="showAuthView()">← Back to login options</button>
           </div>
 
+          <!-- Email Login Form -->
+          <div id="emailLoginForm" class="email-signup-form">
+            <h2>Sign In to Your Account</h2>
+            <p>Welcome back! Sign in to access your AI automation assistant.</p>
+            
+            <form onsubmit="handleEmailLogin(event)">
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="loginEmail">Email Address *</label>
+                <input type="email" class="signup-form-input" id="loginEmail" name="email" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="loginPassword">Password *</label>
+                <input type="password" class="signup-form-input" id="loginPassword" name="password" placeholder="Enter your password" required>
+              </div>
+              
+              <button type="submit" class="signup-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                  <polyline points="10,17 15,12 10,7"/>
+                  <line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+                Sign In
+              </button>
+            </form>
+            
+            <button class="back-to-auth" onclick="showAuthView()">← Back to login options</button>
+          </div>
+
           <!-- User Profile Display -->
           <div id="userProfileDisplay" class="user-profile-display">
             <div class="user-avatar" id="userAvatar">
@@ -2395,6 +2482,51 @@
 
         </div>
       </div>
+
+      <!-- Profile Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="images/Logo1.png" alt="FlowFix Labs" />
+            </div>
+            <div class="footer-logo-text">
+              <h3>FlowFix Labs</h3>
+              <p>Automations that free your time</p>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#" onclick="showAIChat()">AI Assistant</a></li>
+                <li><a href="#" onclick="showEnterprise()">Enterprise Solutions</a></li>
+                <li><a href="#" onclick="showFeatures()">Integrations</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Contact</a></li>
+                <li><a href="#" onclick="showProfile()">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="mailto:helloflowfixlabs@gmail.com">Email</a></li>
+                <li><a href="https://flowfixlabs.com">Website</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 FlowFix Labs. All rights reserved.</p>
+            <p>Designed to automate your workflow and free your time.</p>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- JavaScript -->
@@ -2629,13 +2761,23 @@ Sent from FlowFix Labs website contact form`;
       function showEmailSignup() {
         document.getElementById('authView').style.display = 'none';
         document.getElementById('emailSignupForm').classList.add('active');
+        document.getElementById('emailLoginForm').classList.remove('active');
         document.getElementById('userProfileDisplay').classList.remove('active');
         document.getElementById('signupName').focus();
+      }
+
+      function showEmailLogin() {
+        document.getElementById('authView').style.display = 'none';
+        document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('emailLoginForm').classList.add('active');
+        document.getElementById('userProfileDisplay').classList.remove('active');
+        document.getElementById('loginEmail').focus();
       }
 
       function showUserProfile() {
         document.getElementById('authView').style.display = 'none';
         document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('emailLoginForm').classList.remove('active');
         document.getElementById('userProfileDisplay').classList.add('active');
       }
 
@@ -2765,6 +2907,64 @@ Sent from FlowFix Labs website contact form`;
         
         // Send user data to company for marketing purposes
         sendUserDataToCompany(currentUser);
+      }
+
+      // Email Login
+      function handleEmailLogin(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const loginEmail = formData.get('email');
+        const loginPassword = formData.get('password');
+        
+        // Get all registered users from localStorage
+        const registeredUsers = JSON.parse(localStorage.getItem('userRegistrations') || '[]');
+        
+        // Also check the current user storage format
+        const storedUser = localStorage.getItem('flowfixUser');
+        let allUsers = [...registeredUsers];
+        
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          // Add stored user to search list if not already in registrations
+          if (!allUsers.find(u => u.email === parsedUser.email)) {
+            allUsers.push(parsedUser);
+          }
+        }
+        
+        // Find user with matching email and password
+        const foundUser = allUsers.find(user => 
+          user.email === loginEmail && user.password === loginPassword
+        );
+        
+        if (foundUser) {
+          // Successful login
+          currentUser = {
+            ...foundUser,
+            loginTime: new Date().toISOString()
+          };
+          
+          // Update stored user data
+          localStorage.setItem('flowfixUser', JSON.stringify(currentUser));
+          
+          // Update UI
+          updateProfileDisplay();
+          showUserProfile();
+          
+          // Show success message
+          alert(`Welcome back, ${foundUser.name}! You can now access the AI automation assistant.`);
+          
+          // Reset form
+          event.target.reset();
+          
+        } else {
+          // Failed login
+          alert('Invalid email or password. Please check your credentials and try again.');
+          
+          // Clear password field but keep email
+          document.getElementById('loginPassword').value = '';
+          document.getElementById('loginPassword').focus();
+        }
       }
 
       // Update Profile Display
@@ -2921,3 +3121,4 @@ Sent from FlowFix Labs website user registration system.`;
     </script>
   </body>
 </html>
+

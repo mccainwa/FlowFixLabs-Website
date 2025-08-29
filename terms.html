@@ -4,78 +4,587 @@
     <title>Terms of Service — FlowFix Labs</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="FlowFix Labs Terms of Service" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta name="description" content="FlowFix Labs Terms of Service - Legal terms and conditions for using our automation services." />
+    <meta property="og:title" content="Terms of Service — FlowFix Labs" />
+    <meta property="og:description" content="Read our terms and conditions for using FlowFix Labs automation services." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flowfixlabs.com/terms.html" />
+    <link rel="canonical" href="https://flowfixlabs.com/terms.html" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #374151;
+        background: #f9fafb;
+        min-height: 100vh;
+      }
+
+      /* Header Styles */
+      .header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-icon {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border: 2px solid #2563eb;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+
+      .logo-text p {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .header-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #6b7280;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #2563eb;
+        background: #f3f4f6;
+      }
+
+      /* Main Content */
+      .main-container {
+        max-width: 4xl;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .content-wrapper {
+        max-width: 48rem;
+        margin: 0 auto;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        padding: 3rem;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .page-subtitle {
+        font-size: 1.125rem;
+        color: #6b7280;
+        margin-bottom: 1rem;
+      }
+
+      .last-updated {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        font-style: italic;
+      }
+
+      .content-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #dbeafe;
+      }
+
+      .section-content {
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .section-content p {
+        margin-bottom: 1rem;
+      }
+
+      .section-content ul, .section-content ol {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .section-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box {
+        background: #fef3c7;
+        border: 1px solid #fbbf24;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box h4 {
+        color: #92400e;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .warning-box {
+        background: #fef2f2;
+        border: 1px solid #fca5a5;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .warning-box h4 {
+        color: #dc2626;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-info {
+        background: #f8fafc;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .contact-info h4 {
+        color: #111827;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 0.5rem;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #1d4ed8;
+      }
+
+      /* Footer */
+      .footer {
+        background: #1f2937;
+        color: white;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+
+      .footer-content p {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin: 0.25rem 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content-wrapper {
+          padding: 2rem 1.5rem;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .header-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body class="is-preload">
-    <header id="header">
-      <a href="index.html" class="title">FlowFix Labs</a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html">About</a></li>
-          <li><a href="elements.html">Capabilities</a></li>
-        </ul>
-      </nav>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="logo-icon">
+            <img src="images/Logo1.png" alt="FlowFix Labs" style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <div class="logo-text">
+            <h1>FlowFix Labs</h1>
+            <p>Automations that free your time</p>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+        </nav>
+      </div>
     </header>
 
-    <div id="wrapper">
-      <section id="main" class="wrapper">
-        <div class="inner">
-          <h1 class="major">Terms of Service</h1>
-          <p><em>Last updated: August 28, 2025</em></p>
+    <!-- Main Content -->
+    <div class="main-container">
+      <div class="content-wrapper">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1rem; height: 1rem;">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="m19 12-7 7-7-7"/>
+          </svg>
+          Back to Home
+        </a>
 
-          <h2>1. Acceptance</h2>
-          <p>By accessing or using FlowFix Labs services or example tools, you agree to these Terms.</p>
-
-          <h2>2. Use of services</h2>
-          <ul>
-            <li>Don’t misuse, disrupt, or attempt to gain unauthorized access to any systems.</li>
-            <li>You’re responsible for the accuracy of data you connect and for maintaining your own backups.</li>
-          </ul>
-
-          <h2>3. Accounts & access</h2>
-          <p>You’re responsible for safeguarding credentials and OAuth grants associated with your accounts.</p>
-
-          <h2>4. Intellectual property</h2>
-          <p>All site content, branding, and example code are owned by FlowFix Labs unless otherwise noted.</p>
-
-          <h2>5. Disclaimers</h2>
-          <p>Services and example tools are provided “as is” without warranties of any kind. We disclaim implied warranties to the extent permitted by law.</p>
-
-          <h2>6. Liability</h2>
-          <p>To the extent permitted by law, FlowFix Labs won’t be liable for indirect, incidental, or consequential damages, or for lost profits or data.</p>
-
-          <h2>7. Changes</h2>
-          <p>We may update these Terms. We’ll post the updated version here with a new “Last updated” date.</p>
-
-          <h2>8. Contact</h2>
-          <p>Questions? <a href="mailto:hello@flowfixlabs.com">hello@flowfixlabs.com</a></p>
-
-          <p class="small"><em>Note: This simple template is provided for convenience and isn’t legal advice. Consider having a lawyer review it for your specific use.</em></p>
+        <div class="page-header">
+          <h1 class="page-title">Terms of Service</h1>
+          <p class="page-subtitle">These terms govern your use of FlowFix Labs automation services. Please read them carefully.</p>
+          <p class="last-updated">Last updated: January 29, 2025</p>
         </div>
-      </section>
+
+        <div class="content-section">
+          <h2 class="section-title">1. Acceptance of Terms</h2>
+          <div class="section-content">
+            <p>By accessing or using FlowFix Labs services, you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access our services.</p>
+            
+            <div class="highlight-box">
+              <h4>Important:</h4>
+              <p>These Terms constitute a legally binding agreement between you and FlowFix Labs. By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">2. Description of Services</h2>
+          <div class="section-content">
+            <p>FlowFix Labs provides automation services including:</p>
+            <ul>
+              <li>AI-powered automation assistant</li>
+              <li>Custom automation development</li>
+              <li>Integration services for business platforms</li>
+              <li>Workflow optimization consulting</li>
+              <li>Technical support and maintenance</li>
+            </ul>
+            <p>Our services are designed to help businesses automate repetitive tasks and improve operational efficiency through integration with various third-party platforms and tools.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">3. User Accounts and Registration</h2>
+          <div class="section-content">
+            <p>To access certain features of our services, you may be required to create an account. When creating an account, you agree to:</p>
+            <ul>
+              <li>Provide accurate, current, and complete information</li>
+              <li>Maintain and update your information as necessary</li>
+              <li>Keep your account credentials secure and confidential</li>
+              <li>Accept responsibility for all activities under your account</li>
+              <li>Notify us immediately of any unauthorized use</li>
+            </ul>
+            
+            <div class="warning-box">
+              <h4>Account Security:</h4>
+              <p>You are solely responsible for maintaining the confidentiality of your account and password. FlowFix Labs will not be liable for any loss or damage arising from your failure to comply with this security obligation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">4. Acceptable Use Policy</h2>
+          <div class="section-content">
+            <p>You agree to use our services only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+            <ul>
+              <li>Violate any applicable laws or regulations</li>
+              <li>Infringe on intellectual property rights</li>
+              <li>Transmit harmful, offensive, or inappropriate content</li>
+              <li>Attempt to gain unauthorized access to our systems</li>
+              <li>Interfere with or disrupt our services</li>
+              <li>Use our services for competitive intelligence or benchmarking</li>
+              <li>Reverse engineer, decompile, or disassemble our software</li>
+              <li>Create derivative works based on our services</li>
+            </ul>
+
+            <div class="warning-box">
+              <h4>Prohibited Activities:</h4>
+              <p>Any attempt to use our services for illegal activities, spam, malware distribution, or any form of abuse will result in immediate account termination and may be reported to law enforcement.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">5. Service Availability and Modifications</h2>
+          <div class="section-content">
+            <p>We strive to provide reliable services, but we cannot guarantee uninterrupted availability. We reserve the right to:</p>
+            <ul>
+              <li>Modify, suspend, or discontinue services at any time</li>
+              <li>Perform maintenance and updates as necessary</li>
+              <li>Implement new features or remove existing ones</li>
+              <li>Change pricing and service plans with notice</li>
+            </ul>
+            <p>We will provide reasonable notice of significant changes to our services, but we are not liable for any disruption or loss resulting from service modifications.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">6. Payment Terms and Billing</h2>
+          <div class="section-content">
+            <p>For paid services, the following terms apply:</p>
+            <ul>
+              <li>Fees are charged in advance for subscription services</li>
+              <li>Custom development projects may require milestone payments</li>
+              <li>All fees are non-refundable unless otherwise specified</li>
+              <li>Late payments may result in service suspension</li>
+              <li>Price changes will be communicated with 30 days notice</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>Billing Disputes:</h4>
+              <p>If you believe there is an error in your billing, please contact us within 30 days of the charge. We will investigate and resolve any legitimate billing issues promptly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">7. Intellectual Property Rights</h2>
+          <div class="section-content">
+            <p>FlowFix Labs retains all rights, title, and interest in our services, including:</p>
+            <ul>
+              <li>Software, algorithms, and proprietary technology</li>
+              <li>Trademarks, logos, and brand elements</li>
+              <li>Documentation and training materials</li>
+              <li>Improvements and enhancements to our services</li>
+            </ul>
+            <p>You retain ownership of your data and content, but grant us a license to use it as necessary to provide our services.</p>
+
+            <div class="highlight-box">
+              <h4>Custom Development:</h4>
+              <p>For custom automation projects, intellectual property ownership will be specified in separate project agreements. Generally, you own the final deliverables while we retain rights to underlying technology and methodologies.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">8. Data Protection and Privacy</h2>
+          <div class="section-content">
+            <p>Your privacy is important to us. Our data practices are governed by our Privacy Policy, which is incorporated into these Terms by reference. Key points include:</p>
+            <ul>
+              <li>We collect only necessary information to provide our services</li>
+              <li>Your data is encrypted and securely stored</li>
+              <li>We do not sell or share your personal information</li>
+              <li>You have rights to access, correct, and delete your data</li>
+              <li>We comply with applicable data protection regulations</li>
+            </ul>
+            <p>For detailed information about our data practices, please review our <a href="privacy.html" style="color: #2563eb;">Privacy Policy</a>.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">9. Third-Party Integrations</h2>
+          <div class="section-content">
+            <p>Our services may integrate with third-party platforms and services. Important considerations:</p>
+            <ul>
+              <li>Third-party services are governed by their own terms and policies</li>
+              <li>We are not responsible for third-party service availability or performance</li>
+              <li>Integration functionality may change based on third-party updates</li>
+              <li>You must comply with third-party terms when using integrations</li>
+              <li>We may discontinue integrations if third-party terms change</li>
+            </ul>
+
+            <div class="warning-box">
+              <h4>Third-Party Liability:</h4>
+              <p>FlowFix Labs is not liable for any issues, data loss, or service interruptions caused by third-party platforms or their changes to APIs, terms, or functionality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">10. Limitation of Liability</h2>
+          <div class="section-content">
+            <p>To the maximum extent permitted by law, FlowFix Labs shall not be liable for:</p>
+            <ul>
+              <li>Indirect, incidental, or consequential damages</li>
+              <li>Loss of profits, data, or business opportunities</li>
+              <li>Service interruptions or downtime</li>
+              <li>Third-party actions or failures</li>
+              <li>Force majeure events beyond our control</li>
+            </ul>
+            <p>Our total liability for any claim shall not exceed the amount paid by you for our services in the 12 months preceding the claim.</p>
+
+            <div class="warning-box">
+              <h4>Important Limitation:</h4>
+              <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability. In such cases, our liability will be limited to the maximum extent permitted by applicable law.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">11. Indemnification</h2>
+          <div class="section-content">
+            <p>You agree to indemnify and hold FlowFix Labs harmless from any claims, damages, or expenses arising from:</p>
+            <ul>
+              <li>Your use of our services</li>
+              <li>Your violation of these Terms</li>
+              <li>Your violation of applicable laws</li>
+              <li>Infringement of third-party rights</li>
+              <li>Your data or content</li>
+            </ul>
+            <p>This indemnification obligation survives termination of these Terms.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">12. Termination</h2>
+          <div class="section-content">
+            <p>Either party may terminate this agreement:</p>
+            <ul>
+              <li>With 30 days written notice for convenience</li>
+              <li>Immediately for material breach of these Terms</li>
+              <li>Immediately if required by law or regulation</li>
+            </ul>
+            <p>Upon termination:</p>
+            <ul>
+              <li>Your access to services will be discontinued</li>
+              <li>You may request export of your data within 30 days</li>
+              <li>Outstanding fees remain due and payable</li>
+              <li>Certain provisions of these Terms survive termination</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">13. Dispute Resolution</h2>
+          <div class="section-content">
+            <p>In the event of a dispute, we encourage resolution through direct communication. If informal resolution fails:</p>
+            <ul>
+              <li>Disputes will be resolved through binding arbitration</li>
+              <li>Arbitration will be conducted under applicable arbitration rules</li>
+              <li>The arbitration will take place in a mutually agreed location</li>
+              <li>Each party bears their own costs unless otherwise awarded</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>Class Action Waiver:</h4>
+              <p>You agree that disputes will be resolved individually and not as part of a class action or collective proceeding.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">14. Governing Law</h2>
+          <div class="section-content">
+            <p>These Terms are governed by and construed in accordance with the laws of the jurisdiction where FlowFix Labs is incorporated, without regard to conflict of law principles.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">15. Changes to Terms</h2>
+          <div class="section-content">
+            <p>We may update these Terms from time to time. We will notify you of material changes by:</p>
+            <ul>
+              <li>Posting updated Terms on our website</li>
+              <li>Sending email notification to registered users</li>
+              <li>Providing notice through our services</li>
+            </ul>
+            <p>Continued use of our services after changes constitutes acceptance of the updated Terms.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">16. Severability and Entire Agreement</h2>
+          <div class="section-content">
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect. These Terms, together with our Privacy Policy, constitute the entire agreement between you and FlowFix Labs regarding our services.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">17. Contact Information</h2>
+          <div class="section-content">
+            <p>If you have questions about these Terms or need to contact us regarding legal matters:</p>
+            
+            <div class="contact-info">
+              <h4>FlowFix Labs</h4>
+              <p><strong>Legal Inquiries:</strong> legal@flowfixlabs.com</p>
+              <p><strong>General Contact:</strong> helloflowfixlabs@gmail.com</p>
+              <p><strong>Website:</strong> <a href="https://flowfixlabs.com" style="color: #2563eb;">https://flowfixlabs.com</a></p>
+              <p><strong>Response Time:</strong> We aim to respond to all legal inquiries within 5 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <footer id="footer" class="wrapper style1-alt">
-      <div class="inner footer-flex">
-        <ul class="menu">
-          <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-        <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 FlowFix Labs. All rights reserved.</p>
+        <p>These terms protect both our users and our business interests.</p>
       </div>
     </footer>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <style>
-      #footer .inner.footer-flex{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-      .footer-logo{height:34px;width:auto;opacity:.95}
-      @media (max-width:680px){#footer .inner.footer-flex{flex-direction:column;gap:.5rem}}
-    </style>
   </body>
 </html>

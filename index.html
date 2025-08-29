@@ -608,6 +608,286 @@
         background: #ea580c;
       }
 
+      /* Enhanced Chat Interface Styles */
+      .chat-main-container {
+        display: flex;
+        flex: 1;
+        height: calc(100vh - 80px);
+      }
+
+      .chat-sidebar {
+        width: 320px;
+        background: white;
+        border-right: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .sidebar-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+
+      .sidebar-header h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 0.5rem;
+      }
+
+      .sidebar-header p {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .industry-tabs {
+        padding: 1rem;
+      }
+
+      .industry-tab {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .industry-tab:hover {
+        background: #f3f4f6;
+        border-color: #e5e7eb;
+      }
+
+      .industry-tab.active {
+        background: #dbeafe;
+        border-color: #3b82f6;
+      }
+
+      .tab-icon {
+        font-size: 1.5rem;
+        margin-right: 0.75rem;
+        width: 2rem;
+        text-align: center;
+      }
+
+      .tab-content h4 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 0.25rem;
+      }
+
+      .tab-content p {
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .industry-examples {
+        flex: 1;
+        padding: 1rem;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      .examples-content h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .example-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #e5e7eb;
+      }
+
+      .example-item:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+      }
+
+      .example-icon {
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+        width: 1.5rem;
+        text-align: center;
+      }
+
+      .example-text {
+        font-size: 0.875rem;
+        color: #374151;
+        font-weight: 500;
+      }
+
+      .welcome-section {
+        padding: 2rem 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      }
+
+      .welcome-message h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .welcome-message p {
+        font-size: 1rem;
+        color: #6b7280;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .suggestion-bubbles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .suggestion-bubble {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: white;
+        border: 2px solid #e5e7eb;
+        border-radius: 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #374151;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .suggestion-bubble:hover {
+        border-color: #f97316;
+        background: #fff7ed;
+        color: #ea580c;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+      }
+
+      .bubble-icon {
+        font-size: 1rem;
+      }
+
+      .bubble-text {
+        white-space: nowrap;
+      }
+
+      .dynamic-suggestions {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+        display: none;
+      }
+
+      .dynamic-suggestions.show {
+        display: block;
+      }
+
+      .dynamic-suggestions .suggestion-bubbles {
+        justify-content: flex-start;
+        gap: 0.5rem;
+      }
+
+      .dynamic-suggestions .suggestion-bubble {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      /* Responsive Design for Chat Interface */
+      @media (max-width: 1024px) {
+        .chat-sidebar {
+          width: 280px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .chat-main-container {
+          flex-direction: column;
+        }
+
+        .chat-sidebar {
+          width: 100%;
+          height: 200px;
+          border-right: none;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        .industry-tabs {
+          display: flex;
+          overflow-x: auto;
+          padding: 0.5rem;
+          gap: 0.5rem;
+        }
+
+        .industry-tab {
+          flex-shrink: 0;
+          margin-bottom: 0;
+          min-width: 120px;
+        }
+
+        .industry-examples {
+          display: none;
+        }
+
+        .welcome-section {
+          padding: 1.5rem 1rem;
+        }
+
+        .suggestion-bubbles {
+          gap: 0.5rem;
+        }
+
+        .suggestion-bubble {
+          font-size: 0.8rem;
+          padding: 0.5rem 0.75rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .chat-sidebar {
+          height: 150px;
+        }
+
+        .sidebar-header {
+          padding: 1rem;
+        }
+
+        .sidebar-header h3 {
+          font-size: 1rem;
+        }
+
+        .welcome-message h2 {
+          font-size: 1.25rem;
+        }
+
+        .suggestion-bubble {
+          font-size: 0.75rem;
+          padding: 0.5rem;
+        }
+
+        .bubble-text {
+          font-size: 0.75rem;
+        }
+      }
+
       /* Enterprise Form */
       .enterprise-interface {
         display: none;
@@ -1819,34 +2099,258 @@
         </div>
       </header>
 
-      <div class="chat-container">
-        <div class="chat-box">
-          <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-              <div class="message-content">
-                <p>Hi! I'm your FlowFix AI assistant. I can help you integrate and automate your everyday tools like Google Sheets, Docs, Excel, Teams, and more. What would you like to automate today?</p>
-                <span class="message-time" id="initialTime"></span>
+      <div class="chat-main-container">
+        <!-- Left Sidebar with Industry Tabs -->
+        <div class="chat-sidebar">
+          <div class="sidebar-header">
+            <h3>Industries & Solutions</h3>
+            <p>Explore automation examples for your industry</p>
+          </div>
+          
+          <div class="industry-tabs">
+            <div class="industry-tab active" data-industry="general" onclick="switchIndustry('general')">
+              <div class="tab-icon">🏢</div>
+              <div class="tab-content">
+                <h4>General Business</h4>
+                <p>Common automation tasks</p>
+              </div>
+            </div>
+            
+            <div class="industry-tab" data-industry="healthcare" onclick="switchIndustry('healthcare')">
+              <div class="tab-icon">🏥</div>
+              <div class="tab-content">
+                <h4>Healthcare</h4>
+                <p>Patient data & scheduling</p>
+              </div>
+            </div>
+            
+            <div class="industry-tab" data-industry="education" onclick="switchIndustry('education')">
+              <div class="tab-icon">🎓</div>
+              <div class="tab-content">
+                <h4>Education</h4>
+                <p>Student management & grading</p>
+              </div>
+            </div>
+            
+            <div class="industry-tab" data-industry="finance" onclick="switchIndustry('finance')">
+              <div class="tab-icon">💰</div>
+              <div class="tab-content">
+                <h4>Finance</h4>
+                <p>Reports & compliance</p>
+              </div>
+            </div>
+            
+            <div class="industry-tab" data-industry="retail" onclick="switchIndustry('retail')">
+              <div class="tab-icon">🛍️</div>
+              <div class="tab-content">
+                <h4>Retail</h4>
+                <p>Inventory & customer data</p>
+              </div>
+            </div>
+            
+            <div class="industry-tab" data-industry="marketing" onclick="switchIndustry('marketing')">
+              <div class="tab-icon">📈</div>
+              <div class="tab-content">
+                <h4>Marketing</h4>
+                <p>Campaigns & analytics</p>
               </div>
             </div>
           </div>
-
-          <div class="typing-indicator" id="typingIndicator">
-            <div class="typing-content">
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
+          
+          <!-- Industry-specific examples -->
+          <div class="industry-examples">
+            <div class="examples-content" id="examples-general">
+              <h4>Popular Automations</h4>
+              <div class="example-item" onclick="selectExample('Schedule weekly email reports from Google Sheets')">
+                <span class="example-icon">📊</span>
+                <span class="example-text">Weekly email reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Automatically backup files to Google Drive')">
+                <span class="example-icon">💾</span>
+                <span class="example-text">File backup automation</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Create Slack notifications for form submissions')">
+                <span class="example-icon">🔔</span>
+                <span class="example-text">Form notifications</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Generate PDF invoices from spreadsheet data')">
+                <span class="example-icon">📄</span>
+                <span class="example-text">PDF invoice generation</span>
+              </div>
+            </div>
+            
+            <div class="examples-content hidden" id="examples-healthcare">
+              <h4>Healthcare Automations</h4>
+              <div class="example-item" onclick="selectExample('Automate patient appointment reminders via email')">
+                <span class="example-icon">📅</span>
+                <span class="example-text">Appointment reminders</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Generate patient reports from medical data')">
+                <span class="example-icon">📋</span>
+                <span class="example-text">Patient reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Sync patient data between systems')">
+                <span class="example-icon">🔄</span>
+                <span class="example-text">Data synchronization</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Automate insurance claim processing')">
+                <span class="example-icon">🏥</span>
+                <span class="example-text">Insurance claims</span>
+              </div>
+            </div>
+            
+            <div class="examples-content hidden" id="examples-education">
+              <h4>Education Automations</h4>
+              <div class="example-item" onclick="selectExample('Automatically grade and email quiz results')">
+                <span class="example-icon">📝</span>
+                <span class="example-text">Quiz grading</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Send attendance reports to parents')">
+                <span class="example-icon">👨‍👩‍👧‍👦</span>
+                <span class="example-text">Attendance reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Create student progress dashboards')">
+                <span class="example-icon">📊</span>
+                <span class="example-text">Progress tracking</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Automate assignment distribution')">
+                <span class="example-icon">📚</span>
+                <span class="example-text">Assignment distribution</span>
+              </div>
+            </div>
+            
+            <div class="examples-content hidden" id="examples-finance">
+              <h4>Finance Automations</h4>
+              <div class="example-item" onclick="selectExample('Generate monthly financial reports')">
+                <span class="example-icon">📈</span>
+                <span class="example-text">Financial reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Automate expense tracking and categorization')">
+                <span class="example-icon">💳</span>
+                <span class="example-text">Expense tracking</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Send payment reminders to clients')">
+                <span class="example-icon">💰</span>
+                <span class="example-text">Payment reminders</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Compliance reporting automation')">
+                <span class="example-icon">📋</span>
+                <span class="example-text">Compliance reports</span>
+              </div>
+            </div>
+            
+            <div class="examples-content hidden" id="examples-retail">
+              <h4>Retail Automations</h4>
+              <div class="example-item" onclick="selectExample('Automate inventory level alerts')">
+                <span class="example-icon">📦</span>
+                <span class="example-text">Inventory alerts</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Generate sales performance reports')">
+                <span class="example-icon">📊</span>
+                <span class="example-text">Sales reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Customer order confirmation emails')">
+                <span class="example-icon">✉️</span>
+                <span class="example-text">Order confirmations</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Price monitoring and updates')">
+                <span class="example-icon">🏷️</span>
+                <span class="example-text">Price monitoring</span>
+              </div>
+            </div>
+            
+            <div class="examples-content hidden" id="examples-marketing">
+              <h4>Marketing Automations</h4>
+              <div class="example-item" onclick="selectExample('Automate social media posting schedule')">
+                <span class="example-icon">📱</span>
+                <span class="example-text">Social media posting</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Generate campaign performance reports')">
+                <span class="example-icon">📈</span>
+                <span class="example-text">Campaign reports</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Lead scoring and qualification')">
+                <span class="example-icon">🎯</span>
+                <span class="example-text">Lead scoring</span>
+              </div>
+              <div class="example-item" onclick="selectExample('Email marketing automation workflows')">
+                <span class="example-icon">📧</span>
+                <span class="example-text">Email workflows</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="chat-input-area">
-            <div class="chat-input-container">
-              <input type="text" class="chat-input" id="chatInput" placeholder="Describe what you want to automate..." onkeydown="handleChatKeyPress(event)">
-              <button class="chat-send-button" onclick="sendChatMessage()">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
-                  <path d="m22 2-7 20-4-9-9-4Z"/>
-                  <path d="M22 2 11 13"/>
-                </svg>
-              </button>
+        <!-- Main Chat Area -->
+        <div class="chat-container">
+          <div class="chat-box">
+            <!-- Welcome message with initial suggestions -->
+            <div class="welcome-section" id="welcomeSection">
+              <div class="welcome-message">
+                <h2>👋 Welcome to FlowFix AI Assistant!</h2>
+                <p>I can help you automate your everyday tasks. Here are some popular automation ideas to get you started:</p>
+              </div>
+              
+              <div class="suggestion-bubbles" id="initialSuggestions">
+                <div class="suggestion-bubble" onclick="selectSuggestion('Schedule weekly email reports from Google Sheets')">
+                  <span class="bubble-icon">📊</span>
+                  <span class="bubble-text">Weekly Email Reports</span>
+                </div>
+                <div class="suggestion-bubble" onclick="selectSuggestion('Create Slack notifications for form submissions')">
+                  <span class="bubble-icon">🔔</span>
+                  <span class="bubble-text">Form Notifications</span>
+                </div>
+                <div class="suggestion-bubble" onclick="selectSuggestion('Automatically backup files to Google Drive')">
+                  <span class="bubble-icon">💾</span>
+                  <span class="bubble-text">File Backup</span>
+                </div>
+                <div class="suggestion-bubble" onclick="selectSuggestion('Generate PDF invoices from spreadsheet data')">
+                  <span class="bubble-icon">📄</span>
+                  <span class="bubble-text">PDF Invoices</span>
+                </div>
+                <div class="suggestion-bubble" onclick="selectSuggestion('Sync data between different platforms')">
+                  <span class="bubble-icon">🔄</span>
+                  <span class="bubble-text">Data Sync</span>
+                </div>
+                <div class="suggestion-bubble" onclick="selectSuggestion('Automate social media posting')">
+                  <span class="bubble-icon">📱</span>
+                  <span class="bubble-text">Social Media</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div class="message bot">
+                <div class="message-content">
+                  <p>Hi! I'm your FlowFix AI assistant. I can help you integrate and automate your everyday tools like Google Sheets, Docs, Excel, Teams, and more. What would you like to automate today?</p>
+                  <span class="message-time" id="initialTime"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic suggestion bubbles that appear after each response -->
+            <div class="dynamic-suggestions" id="dynamicSuggestions">
+              <!-- Suggestions will be populated here based on conversation context -->
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator">
+              <div class="typing-content">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Describe what you want to automate..." onkeydown="handleChatKeyPress(event)">
+                <button class="chat-send-button" onclick="sendChatMessage()">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                    <path d="m22 2-7 20-4-9-9-4Z"/>
+                    <path d="M22 2 11 13"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -3113,6 +3617,188 @@ Sent from FlowFix Labs website user registration system.`;
         document.getElementById('profileLink').classList.remove('active');
       }
 
+      // Enhanced Chatbot Functions
+      
+      // Industry switching functionality
+      function switchIndustry(industry) {
+        // Update active tab
+        document.querySelectorAll('.industry-tab').forEach(tab => {
+          tab.classList.remove('active');
+        });
+        document.querySelector(`[data-industry="${industry}"]`).classList.add('active');
+        
+        // Show corresponding examples
+        document.querySelectorAll('.examples-content').forEach(content => {
+          content.classList.add('hidden');
+        });
+        document.getElementById(`examples-${industry}`).classList.remove('hidden');
+      }
+      
+      // Handle example selection from sidebar
+      function selectExample(exampleText) {
+        // Hide welcome section
+        document.getElementById('welcomeSection').style.display = 'none';
+        
+        // Set input value and send message
+        document.getElementById('chatInput').value = exampleText;
+        sendChatMessage();
+      }
+      
+      // Handle suggestion bubble clicks
+      function selectSuggestion(suggestionText) {
+        // Hide welcome section
+        document.getElementById('welcomeSection').style.display = 'none';
+        
+        // Set input value and send message
+        document.getElementById('chatInput').value = suggestionText;
+        sendChatMessage();
+      }
+      
+      // Show dynamic suggestions after bot responses
+      function showDynamicSuggestions(suggestions) {
+        const dynamicSuggestionsContainer = document.getElementById('dynamicSuggestions');
+        
+        if (suggestions && suggestions.length > 0) {
+          const suggestionsHTML = suggestions.map(suggestion => `
+            <div class="suggestion-bubble" onclick="selectSuggestion('${suggestion.text}')">
+              <span class="bubble-icon">${suggestion.icon}</span>
+              <span class="bubble-text">${suggestion.text}</span>
+            </div>
+          `).join('');
+          
+          dynamicSuggestionsContainer.innerHTML = `
+            <div class="suggestion-bubbles">
+              ${suggestionsHTML}
+            </div>
+          `;
+          
+          dynamicSuggestionsContainer.classList.add('show');
+        } else {
+          dynamicSuggestionsContainer.classList.remove('show');
+        }
+      }
+      
+      // Generate contextual suggestions based on conversation
+      function generateContextualSuggestions(userMessage, botResponse) {
+        const message = userMessage.toLowerCase();
+        const response = botResponse.toLowerCase();
+        
+        // Define suggestion sets based on context
+        const suggestionSets = {
+          sheets: [
+            { icon: '📊', text: 'Create automated pivot table reports' },
+            { icon: '📧', text: 'Set up email alerts for data changes' },
+            { icon: '🔄', text: 'Sync sheets with other platforms' }
+          ],
+          email: [
+            { icon: '⏰', text: 'Schedule recurring email campaigns' },
+            { icon: '📋', text: 'Create email templates' },
+            { icon: '🎯', text: 'Set up automated follow-ups' }
+          ],
+          slack: [
+            { icon: '🔔', text: 'Create custom Slack workflows' },
+            { icon: '📊', text: 'Send daily reports to Slack' },
+            { icon: '🤖', text: 'Build Slack chatbots' }
+          ],
+          general: [
+            { icon: '🔄', text: 'Connect multiple platforms' },
+            { icon: '📈', text: 'Generate performance reports' },
+            { icon: '⚡', text: 'Automate repetitive tasks' }
+          ]
+        };
+        
+        // Determine which suggestions to show based on context
+        if (message.includes('sheets') || message.includes('google sheets') || response.includes('sheets')) {
+          return suggestionSets.sheets;
+        } else if (message.includes('email') || message.includes('gmail') || response.includes('email')) {
+          return suggestionSets.email;
+        } else if (message.includes('slack') || response.includes('slack')) {
+          return suggestionSets.slack;
+        } else {
+          return suggestionSets.general;
+        }
+      }
+      
+      // Enhanced sendChatMessage function with suggestions
+      async function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+        
+        if (!message) return;
+
+        // Hide welcome section and dynamic suggestions
+        document.getElementById('welcomeSection').style.display = 'none';
+        document.getElementById('dynamicSuggestions').classList.remove('show');
+
+        // Add user message
+        addChatMessage(message, 'user');
+        input.value = '';
+
+        // Show typing indicator
+        showTypingIndicator();
+
+        try {
+          // Call your custom AI API
+          const response = await fetch('https://api.beyondzsolutions.com/api/chat', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: message,
+              user: currentUser ? currentUser.name : 'Anonymous',
+              context: 'FlowFix Labs automation assistant'
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(`API request failed: ${response.status}`);
+          }
+
+          const data = await response.json();
+          
+          hideTypingIndicator();
+          
+          // Extract the AI response from your API response format
+          const aiResponse = data.response || data.message || data.reply || 'I apologize, but I encountered an issue processing your request. Please try again.';
+          addChatMessage(aiResponse, 'bot');
+          
+          // Show contextual suggestions
+          const suggestions = generateContextualSuggestions(message, aiResponse);
+          showDynamicSuggestions(suggestions);
+          
+        } catch (error) {
+          console.error('Error calling AI API:', error);
+          hideTypingIndicator();
+          
+          // Fallback to local response if API fails
+          const fallbackResponse = generateFallbackResponse(message);
+          addChatMessage(fallbackResponse, 'bot');
+          
+          // Show contextual suggestions even for fallback
+          const suggestions = generateContextualSuggestions(message, fallbackResponse);
+          showDynamicSuggestions(suggestions);
+        }
+      }
+      
+      // Enhanced addChatMessage function
+      function addChatMessage(text, sender) {
+        const messagesContainer = document.getElementById('chatMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        
+        const timestamp = new Date().toLocaleTimeString();
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${text}</p>
+            <span class="message-time">${timestamp}</span>
+          </div>
+        `;
+        
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
       // Initialize user session on page load
       document.addEventListener('DOMContentLoaded', function() {
         checkUserSession();
@@ -3121,4 +3807,3 @@ Sent from FlowFix Labs website user registration system.`;
     </script>
   </body>
 </html>
-

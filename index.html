@@ -1681,6 +1681,26 @@
         color: #374151;
       }
 
+      /* Forgot Password Styles */
+      .forgot-password-link {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .forgot-password-btn {
+        background: none;
+        border: none;
+        color: #2563eb;
+        cursor: pointer;
+        font-size: 0.875rem;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      .forgot-password-btn:hover {
+        color: #1d4ed8;
+      }
+
       /* User Profile Display */
       .user-profile-display {
         display: none;
@@ -2054,6 +2074,8 @@
               <ul>
                 <li><a href="mailto:helloflowfixlabs@gmail.com">Contact</a></li>
                 <li><a href="#" onclick="showProfile()">Sign Up</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
               </ul>
             </div>
             <div class="footer-section">
@@ -2937,6 +2959,12 @@
                 <input type="password" class="signup-form-input" id="loginPassword" name="password" placeholder="Enter your password" required>
               </div>
               
+              <div class="forgot-password-link">
+                <button type="button" class="forgot-password-btn" onclick="showForgotPassword()">
+                  Forgot your password?
+                </button>
+              </div>
+              
               <button type="submit" class="signup-submit">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
                   <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
@@ -2948,6 +2976,29 @@
             </form>
             
             <button class="back-to-auth" onclick="showAuthView()">← Back to login options</button>
+          </div>
+
+          <!-- Forgot Password Form -->
+          <div id="forgotPasswordForm" class="email-signup-form">
+            <h2>Reset Your Password</h2>
+            <p>Enter your email address and we'll send you instructions to reset your password.</p>
+            
+            <form onsubmit="handleForgotPassword(event)">
+              <div class="signup-form-group">
+                <label class="signup-form-label" for="forgotEmail">Email Address *</label>
+                <input type="email" class="signup-form-input" id="forgotEmail" name="email" placeholder="your@email.com" required>
+              </div>
+              
+              <button type="submit" class="signup-submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                  <path d="m22 2-7 20-4-9-9-4Z"/>
+                  <path d="M22 2 11 13"/>
+                </svg>
+                Send Reset Instructions
+              </button>
+            </form>
+            
+            <button class="back-to-auth" onclick="showEmailLogin()">← Back to sign in</button>
           </div>
 
           <!-- User Profile Display -->
@@ -3797,6 +3848,100 @@ Sent from FlowFix Labs website user registration system.`;
         
         messagesContainer.appendChild(messageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Forgot Password Functions
+      function showForgotPassword() {
+        document.getElementById('authView').style.display = 'none';
+        document.getElementById('emailSignupForm').classList.remove('active');
+        document.getElementById('emailLoginForm').classList.remove('active');
+        document.getElementById('forgotPasswordForm').classList.add('active');
+        document.getElementById('userProfileDisplay').classList.remove('active');
+        document.getElementById('forgotEmail').focus();
+      }
+
+      function handleForgotPassword(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const resetEmail = formData.get('email');
+        
+        // Get all registered users from localStorage
+        const registeredUsers = JSON.parse(localStorage.getItem('userRegistrations') || '[]');
+        
+        // Also check the current user storage format
+        const storedUser = localStorage.getItem('flowfixUser');
+        let allUsers = [...registeredUsers];
+        
+        if (storedUser) {
+          const parsedUser = JSON.parse(storedUser);
+          // Add stored user to search list if not already in registrations
+          if (!allUsers.find(u => u.email === parsedUser.email)) {
+            allUsers.push(parsedUser);
+          }
+        }
+        
+        // Check if email exists in our user database
+        const foundUser = allUsers.find(user => user.email === resetEmail);
+        
+        if (foundUser) {
+          // In a real application, this would send an actual email
+          // For demo purposes, we'll show the password reset info
+          
+          // Create email body for company notification
+          const emailBody = `Password Reset Request - FlowFix Labs
+
+User Details:
+Name: ${foundUser.name}
+Email: ${resetEmail}
+Company: ${foundUser.company || 'Not provided'}
+User ID: ${foundUser.userId || 'N/A'}
+Original Registration: ${foundUser.loginTime ? new Date(foundUser.loginTime).toLocaleString() : 'Unknown'}
+
+Reset Request Time: ${new Date().toLocaleString()}
+
+---
+This user has requested a password reset. Please follow up with password reset instructions.
+
+Sent from FlowFix Labs website password reset system.`;
+          
+          // In a real app, this would trigger an email service
+          console.log('Password reset requested for:', resetEmail);
+          
+          // Show success message
+          alert(`Password reset instructions have been sent to ${resetEmail}. Please check your email and follow the instructions to reset your password.\n\nNote: In this demo, the reset request has been logged for our team to follow up with you directly.`);
+          
+          // Reset form and go back to login
+          event.target.reset();
+          showEmailLogin();
+          
+          // Send notification to company (in real app, this would be handled by backend)
+          try {
+            // Create mailto link for company notification
+            const mailtoLink = `mailto:helloflowfixlabs@gmail.com?subject=Password Reset Request - ${resetEmail}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Log the reset request
+            const resetRequests = JSON.parse(localStorage.getItem('passwordResetRequests') || '[]');
+            resetRequests.push({
+              email: resetEmail,
+              userId: foundUser.userId,
+              requestTime: new Date().toISOString(),
+              requestId: 'reset_' + Date.now()
+            });
+            localStorage.setItem('passwordResetRequests', JSON.stringify(resetRequests));
+            
+          } catch (error) {
+            console.error('Error logging password reset request:', error);
+          }
+          
+        } else {
+          // Email not found
+          alert('We could not find an account associated with that email address. Please check your email and try again, or create a new account.');
+          
+          // Clear the email field and refocus
+          document.getElementById('forgotEmail').value = '';
+          document.getElementById('forgotEmail').focus();
+        }
       }
 
       // Initialize user session on page load

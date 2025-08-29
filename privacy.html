@@ -4,83 +4,477 @@
     <title>Privacy Policy — FlowFix Labs</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="FlowFix Labs Privacy Policy" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta name="description" content="FlowFix Labs Privacy Policy - How we collect, use, and protect your personal information." />
+    <meta property="og:title" content="Privacy Policy — FlowFix Labs" />
+    <meta property="og:description" content="Learn about our privacy practices and data protection policies." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://flowfixlabs.com/privacy.html" />
+    <link rel="canonical" href="https://flowfixlabs.com/privacy.html" />
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #374151;
+        background: #f9fafb;
+        min-height: 100vh;
+      }
+
+      /* Header Styles */
+      .header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .logo-icon {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border: 2px solid #2563eb;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-text h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+
+      .logo-text p {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin: 0;
+      }
+
+      .header-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #6b7280;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #2563eb;
+        background: #f3f4f6;
+      }
+
+      /* Main Content */
+      .main-container {
+        max-width: 4xl;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      .content-wrapper {
+        max-width: 48rem;
+        margin: 0 auto;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        padding: 3rem;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .page-subtitle {
+        font-size: 1.125rem;
+        color: #6b7280;
+        margin-bottom: 1rem;
+      }
+
+      .last-updated {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        font-style: italic;
+      }
+
+      .content-section {
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #dbeafe;
+      }
+
+      .section-content {
+        color: #4b5563;
+        line-height: 1.7;
+      }
+
+      .section-content p {
+        margin-bottom: 1rem;
+      }
+
+      .section-content ul, .section-content ol {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .section-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box {
+        background: #f0f9ff;
+        border: 1px solid #bae6fd;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box h4 {
+        color: #0369a1;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-info {
+        background: #f8fafc;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .contact-info h4 {
+        color: #111827;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info p {
+        margin-bottom: 0.5rem;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #1d4ed8;
+      }
+
+      /* Footer */
+      .footer {
+        background: #1f2937;
+        color: white;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        text-align: center;
+      }
+
+      .footer-content p {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin: 0.25rem 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content-wrapper {
+          padding: 2rem 1.5rem;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .header-nav {
+          display: none;
+        }
+      }
+    </style>
   </head>
-  <body class="is-preload">
-    <header id="header">
-      <a href="index.html" class="title">FlowFix Labs</a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html">About</a></li>
-          <li><a href="elements.html">Capabilities</a></li>
-        </ul>
-      </nav>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="logo-icon">
+            <img src="images/Logo1.png" alt="FlowFix Labs" style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <div class="logo-text">
+            <h1>FlowFix Labs</h1>
+            <p>Automations that free your time</p>
+          </div>
+        </div>
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+        </nav>
+      </div>
     </header>
 
-    <div id="wrapper">
-      <section id="main" class="wrapper">
-        <div class="inner">
-          <h1 class="major">Privacy Policy</h1>
-          <p><em>Last updated: August 28, 2025</em></p>
+    <!-- Main Content -->
+    <div class="main-container">
+      <div class="content-wrapper">
+        <a href="index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1rem; height: 1rem;">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="m19 12-7 7-7-7"/>
+          </svg>
+          Back to Home
+        </a>
 
-          <p>FlowFix Labs (“we”, “us”, “our”) builds lightweight automations and internal tools. This Privacy Policy explains what we collect, how we use it, and your choices.</p>
-
-          <h2>Information we collect</h2>
-          <ul>
-            <li><strong>Contact information</strong> (e.g., name, email) when you contact us.</li>
-            <li><strong>OAuth data</strong> only as needed for the feature you request (for example, basic profile/email, file metadata, or spreadsheet content) and only with your explicit consent.</li>
-            <li><strong>Usage/technical data</strong> (basic logs, error reports) to operate and improve our services.</li>
-          </ul>
-
-          <h2>How we use information</h2>
-          <ul>
-            <li>To provide, secure, and improve automations and tools you ask us to build.</li>
-            <li>To communicate with you about support, updates, and service notices.</li>
-            <li>To comply with legal obligations.</li>
-          </ul>
-
-          <h2>Data sharing</h2>
-          <p>We don’t sell your data. We share only with service providers that help us operate (e.g., hosting, email) under appropriate confidentiality and security commitments, or when required by law.</p>
-
-          <h2>Your choices</h2>
-          <ul>
-            <li>You can revoke Google access at any time via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions</a>.</li>
-            <li>You may request access, correction, or deletion of your personal information by emailing <a href="mailto:hello@flowfixlabs.com">hello@flowfixlabs.com</a>.</li>
-          </ul>
-
-          <h2>Security</h2>
-          <p>We use reasonable administrative, technical, and physical safeguards to protect information. No method of transmission or storage is 100% secure.</p>
-
-          <h2>Data retention</h2>
-          <p>We retain data only as long as necessary for the purposes above, then delete or de-identify it unless a longer retention is required by law or contract.</p>
-
-          <h2>Contact</h2>
-          <p>Questions? <a href="mailto:hello@flowfixlabs.com">hello@flowfixlabs.com</a></p>
+        <div class="page-header">
+          <h1 class="page-title">Privacy Policy</h1>
+          <p class="page-subtitle">Your privacy is important to us. This policy explains how we collect, use, and protect your personal information.</p>
+          <p class="last-updated">Last updated: January 29, 2025</p>
         </div>
-      </section>
+
+        <div class="content-section">
+          <h2 class="section-title">1. Information We Collect</h2>
+          <div class="section-content">
+            <p>We collect information you provide directly to us, such as when you:</p>
+            <ul>
+              <li>Create an account or profile</li>
+              <li>Use our AI automation assistant</li>
+              <li>Contact us for support or inquiries</li>
+              <li>Subscribe to our newsletter or marketing communications</li>
+              <li>Participate in surveys or feedback forms</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>Types of Information Collected:</h4>
+              <ul>
+                <li><strong>Personal Information:</strong> Name, email address, phone number, company name</li>
+                <li><strong>Account Information:</strong> Username, password, profile preferences</li>
+                <li><strong>Usage Data:</strong> How you interact with our services, automation requests, chat history</li>
+                <li><strong>Technical Data:</strong> IP address, browser type, device information, cookies</li>
+                <li><strong>Communication Data:</strong> Messages, support tickets, feedback</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">2. How We Use Your Information</h2>
+          <div class="section-content">
+            <p>We use the information we collect to:</p>
+            <ul>
+              <li>Provide, maintain, and improve our automation services</li>
+              <li>Process your requests and provide customer support</li>
+              <li>Send you technical notices, updates, and administrative messages</li>
+              <li>Respond to your comments, questions, and requests</li>
+              <li>Develop new features and services</li>
+              <li>Analyze usage patterns to improve user experience</li>
+              <li>Prevent fraud and ensure security</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>Marketing Communications:</h4>
+              <p>With your consent, we may send you marketing emails about our services, new features, and industry insights. You can opt out at any time by clicking the unsubscribe link in our emails or contacting us directly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">3. Information Sharing and Disclosure</h2>
+          <div class="section-content">
+            <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+            <ul>
+              <li><strong>Service Providers:</strong> With trusted third-party vendors who help us operate our services (e.g., hosting, analytics, customer support)</li>
+              <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
+              <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+              <li><strong>Protection:</strong> To protect our rights, property, or safety, or that of our users</li>
+              <li><strong>Consent:</strong> With your explicit consent for specific purposes</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>Third-Party Integrations:</h4>
+              <p>Our automation services may integrate with third-party platforms (Google Workspace, Microsoft 365, Slack, etc.). When you authorize these integrations, you're subject to those platforms' privacy policies as well.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">4. Data Security</h2>
+          <div class="section-content">
+            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction:</p>
+            <ul>
+              <li>Encryption of data in transit and at rest</li>
+              <li>Regular security assessments and updates</li>
+              <li>Access controls and authentication measures</li>
+              <li>Employee training on data protection</li>
+              <li>Incident response procedures</li>
+            </ul>
+            <p>However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">5. Data Retention</h2>
+          <div class="section-content">
+            <p>We retain your personal information for as long as necessary to:</p>
+            <ul>
+              <li>Provide our services to you</li>
+              <li>Comply with legal obligations</li>
+              <li>Resolve disputes and enforce agreements</li>
+              <li>Improve our services</li>
+            </ul>
+            <p>When we no longer need your information, we will securely delete or anonymize it. You can request deletion of your account and associated data at any time.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">6. Your Rights and Choices</h2>
+          <div class="section-content">
+            <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+            <ul>
+              <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+              <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
+              <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+              <li><strong>Portability:</strong> Request transfer of your data to another service</li>
+              <li><strong>Restriction:</strong> Request limitation of processing in certain circumstances</li>
+              <li><strong>Objection:</strong> Object to processing based on legitimate interests</li>
+              <li><strong>Withdraw Consent:</strong> Withdraw consent for processing where applicable</li>
+            </ul>
+
+            <div class="highlight-box">
+              <h4>How to Exercise Your Rights:</h4>
+              <p>To exercise any of these rights, please contact us using the information provided below. We will respond to your request within 30 days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">7. Cookies and Tracking Technologies</h2>
+          <div class="section-content">
+            <p>We use cookies and similar tracking technologies to:</p>
+            <ul>
+              <li>Remember your preferences and settings</li>
+              <li>Analyze website traffic and usage patterns</li>
+              <li>Provide personalized content and advertisements</li>
+              <li>Improve our services and user experience</li>
+            </ul>
+            <p>You can control cookies through your browser settings. However, disabling cookies may affect the functionality of our services.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">8. International Data Transfers</h2>
+          <div class="section-content">
+            <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your information in accordance with applicable data protection laws.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">9. Children's Privacy</h2>
+          <div class="section-content">
+            <p>Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">10. Changes to This Privacy Policy</h2>
+          <div class="section-content">
+            <p>We may update this privacy policy from time to time. We will notify you of any material changes by:</p>
+            <ul>
+              <li>Posting the updated policy on our website</li>
+              <li>Sending you an email notification</li>
+              <li>Providing notice through our services</li>
+            </ul>
+            <p>Your continued use of our services after any changes indicates your acceptance of the updated policy.</p>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2 class="section-title">11. Contact Us</h2>
+          <div class="section-content">
+            <p>If you have any questions, concerns, or requests regarding this privacy policy or our data practices, please contact us:</p>
+            
+            <div class="contact-info">
+              <h4>FlowFix Labs</h4>
+              <p><strong>Email:</strong> privacy@flowfixlabs.com</p>
+              <p><strong>General Contact:</strong> helloflowfixlabs@gmail.com</p>
+              <p><strong>Website:</strong> <a href="https://flowfixlabs.com" style="color: #2563eb;">https://flowfixlabs.com</a></p>
+              <p><strong>Response Time:</strong> We aim to respond to all privacy-related inquiries within 48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <footer id="footer" class="wrapper style1-alt">
-      <div class="inner footer-flex">
-        <ul class="menu">
-          <li>&copy; 2025 FlowFix Labs. All rights reserved.</li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-        <img src="images/Logo1.png" alt="FlowFix Labs logo" class="footer-logo" />
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 FlowFix Labs. All rights reserved.</p>
+        <p>Committed to protecting your privacy and data security.</p>
       </div>
     </footer>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <style>
-      #footer .inner.footer-flex{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-      .footer-logo{height:34px;width:auto;opacity:.95}
-      @media (max-width:680px){#footer .inner.footer-flex{flex-direction:column;gap:.5rem}}
-    </style>
   </body>
 </html>
